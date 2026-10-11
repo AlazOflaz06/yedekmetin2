@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Metin Avcısı 3D - Mount & Avatar System</title>
+<title>Metin Avcısı 3D - Classic System & Info Button</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
@@ -88,9 +88,18 @@ h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px
 #top span{color:var(--mute)}
 #top .gold{color:var(--gold);font-variant-numeric:tabular-nums}
 
-#target{position:absolute;top:64px;left:50%;transform:translateX(-50%);width:min(280px,45vw);background:rgba(27,22,19,.9);border:1px solid var(--line);padding:8px 10px;border-radius:4px;text-align:center}
+/* Hedef Paneli ve Bilgi Butonu */
+#target{position:absolute;top:64px;left:50%;transform:translateX(-50%);width:min(320px,50vw);background:rgba(27,22,19,.9);border:1px solid var(--line);padding:8px 12px;border-radius:4px;text-align:center;display:flex;align-items:center;justify-content:space-between;gap:8px}
+#target .tg-content{flex:1}
 #target .nm{font-family:var(--font-display);font-size:14px;margin-bottom:4px}
-#target .info-tag{font-size:10px;color:var(--gold);margin-top:2px}
+#infoBtn{background:var(--gold);color:#000;font-weight:700;border-radius:50%;width:26px;height:26px;padding:0;line-height:26px;border:none;flex-shrink:0;box-shadow:0 0 8px rgba(217,164,65,0.6)}
+
+/* Pop-up Canavar Bilgi Modalı */
+#mobInfoModal{position:absolute;inset:0;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;z-index:25;backdrop-filter:blur(4px)}
+.mob-info-card{background:var(--panel);border:2px solid var(--gold);border-radius:8px;padding:20px;width:min(380px,90vw);box-shadow:0 10px 30px rgba(0,0,0,0.9)}
+.mob-info-card h3{margin-top:0;font-size:18px;border-bottom:1px solid var(--line);padding-bottom:8px}
+.mob-info-card .row-info{margin:8px 0;font-size:13px}
+.mob-info-card .row-info b{color:var(--gold)}
 
 .bar{height:12px;background:#0a0807;border:1px solid var(--line);border-radius:2px;position:relative;overflow:hidden}
 .bar i{display:block;height:100%;width:0;transition:width .12s}
@@ -120,13 +129,16 @@ h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px
 #pbody{flex:1;overflow-y:auto;padding:14px;min-height:0}
 #pclose{margin:10px 14px 14px;width:calc(100% - 28px)}
 
+/* İtem Görsel Simgeleri */
+.item-icon{width:32px;height:32px;background:#110e0c;border:1px solid var(--gold);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:18px;margin-right:8px;vertical-align:middle;box-shadow:inset 0 0 5px rgba(0,0,0,0.8)}
+
 .equipment-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
 .row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.row .nm{flex:1 1 120px;min-width:0;font-weight:500}
+.row .nm{flex:1 1 120px;min-width:0;font-weight:500;display:flex;align-items:center}
 .row .st{color:var(--mute);font-size:12px}
 .slot{background:var(--panel2);border:1px solid var(--line);border-radius:4px;padding:8px;margin-bottom:4px}
 .slot .lbl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
-.slot .nm{font-family:var(--font-display);font-size:14px;margin:2px 0}
+.slot .nm{font-family:var(--font-display);font-size:14px;margin:2px 0;display:flex;align-items:center}
 .slot .efs{font-size:10px;color:var(--jade);margin-top:2px}
 .msg{margin:10px 0;padding:8px 10px;border-radius:4px;background:var(--panel2);border-left:3px solid var(--gold);font-size:13px}
 .skrow{padding:10px 0;border-bottom:1px solid var(--line)}
@@ -150,7 +162,7 @@ table.stats td:last-child{text-align:right}
   <div id="playerLabel">Alaz Oflaz <b>(Sv 1)</b></div>
   <div id="mobLabels"></div>
 
-  <!-- GİRİŞ VE SINIFA ÖZEL EKRAN -->
+  <!-- GİRİŞ EKRANI -->
   <div id="loginScreen">
     <div class="login-box">
       <h2>METİN AVCISI 3D</h2>
@@ -172,10 +184,24 @@ table.stats td:last-child{text-align:right}
     <span>Yang: <b class="gold" id="tGold" style="font-size:14px">0</b></span>
   </div>
 
+  <!-- HEDEF VE BİLGİ BUTONU -->
   <div id="target" hidden>
-    <div class="nm" id="tgName"></div>
-    <div class="bar tg"><i id="tgBar"></i><em id="tgTxt"></em></div>
-    <div class="info-tag" id="tgInfo"></div>
+    <div class="tg-content">
+      <div class="nm" id="tgName"></div>
+      <div class="bar tg"><i id="tgBar"></i><em id="tgTxt"></em></div>
+    </div>
+    <button id="infoBtn" type="button" title="Canavar Bilgisi">i</button>
+  </div>
+
+  <!-- POPUP BİLGİ EKRANI -->
+  <div id="mobInfoModal" hidden>
+    <div class="mob-info-card">
+      <h3 id="modalMobName">Canavar Adı</h3>
+      <div class="row-info">Türü: <b id="modalMobType">-</b></div>
+      <div class="row-info">Etkili Efsun: <b id="modalMobWeak" style="color:var(--jade)">-</b></div>
+      <div class="row-info">Düşen Eşyalar: <b id="modalMobDrops" style="color:var(--gold)">-</b></div>
+      <button id="closeMobInfoBtn" type="button" style="width:100%;margin-top:14px">Kapat</button>
+    </div>
   </div>
 
   <div id="menuBtns">
@@ -206,7 +232,6 @@ table.stats td:last-child{text-align:right}
       <button type="button" data-tab="skills">Beceriler</button>
       <button type="button" data-tab="up">Yükselt/Efsun</button>
       <button type="button" data-tab="shop">Dükkan</button>
-      <button type="button" data-tab="guide">Rehber</button>
     </div>
     <div id="pbody"></div>
     <button id="pclose" type="button">Kapat</button>
@@ -228,7 +253,7 @@ if(typeof THREE==='undefined')return;
 
 var cv=$('c'), W=0, H=0;
 
-/* ---------- 8 Sınıf ve Avatarları ---------- */
+/* ---------- Sınıflar ve ESKİ DÜZEN BECERİLER ---------- */
 var CLASSES=[
   {
     name:'Bedensel Savaşçı',wName:'Kılıç',avatar:'⚔️',
@@ -317,6 +342,11 @@ var currentAccountUser='AlazOflaz';
 var currentAccountPass='123456';
 var selectedSlotIdx=0;
 var currentSaveKey='';
+
+/* İtem Türleri ve İkonları */
+var ITEM_ICONS={
+  w:'🗡️', a:'🛡️', helm:'🪖', shield:'🛡️', necklace:'📿', earring:'💎', bracelet:'💍', shoes:'🥾'
+};
 
 var WEAPONS=['','Tahta','Demir','Çelik','Ejder','Kızıl','Cennet'];
 var ARMORS=['','Deri Zırh','Demir Zırh','Çelik Zırh','Ejder Zırhı','Kızıl Zırh','Cennet Zırhı'];
@@ -550,7 +580,7 @@ function groundColor(gx,gy,out){
   m.receiveShadow=true;scene.add(m);
 })();
 
-/* Metin2 Klasik Savaşçı Modeli */
+/* Metin2 Savaşçı Modeli */
 function buildMetin2Warrior(o){
   var g=new THREE.Group(),ms=[],P={};
   function add(par,geo,mat,x,y,z){var m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;m.userData.m0=mat;par.add(m);ms.push(m);return m}
@@ -598,12 +628,12 @@ function buildMetin2Warrior(o){
 function buildHorseModel(){
   var g=new THREE.Group(), ms=[];
   function add(par,geo,mat,x,y,z){var m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;par.add(m);ms.push(m);return m}
-  var fur=MAT('#5a3d28'), dark=MAT('#22140a'), armor=MAT('#c79a3a','p');
+  var fur=MAT('#5a3d28'), armor=MAT('#c79a3a','p');
   
-  var body=add(g,GEO('box',1.1,1.1,2.2),fur,0,1.4,0);
+  add(g,GEO('box',1.1,1.1,2.2),fur,0,1.4,0);
   var neck=add(g,GEO('box',0.5,1.2,0.6),fur,0,2.1,0.8);neck.rotation.x=-0.4;
-  var head=add(g,GEO('box',0.48,0.48,0.9),fur,0,2.6,1.2);
-  add(g,GEO('box',1.15,0.15,1.2),armor,0,1.95,0); // Eyer
+  add(g,GEO('box',0.48,0.48,0.9),fur,0,2.6,1.2);
+  add(g,GEO('box',1.15,0.15,1.2),armor,0,1.95,0);
   
   var legs=[[-0.4,0.7,0.8],[0.4,0.7,0.8],[-0.4,0.7,-0.8],[0.4,0.7,-0.8]];
   for(var i=0;i<4;i++){add(g,GEO('cyl',0.16,0.12,1.4,8),fur,legs[i][0],legs[i][1],legs[i][2])}
@@ -977,6 +1007,7 @@ function nearestTarget(maxD){
 }
 function validTarget(tg){return tg&&((tg.kind==='m'&&!tg.ref.dead)||(tg.kind==='x'&&tg.ref.alive))}
 
+/* ESKİ SKİLLER KODU */
 function useSkill(i){
   if(dead)return;
   var SK = getSK();
@@ -997,6 +1028,9 @@ function useSkill(i){
       fxBurst(q[0],q[1]+1,q[2],hex,0.4,3.2,0.45);
       shakeCam(0.35);
       dealTo(tg.kind==='m'?'m':'x',tg.ref,r.d,r.crit,hex);
+    }else{
+      swing=1;var dv=dirVec(face);
+      projs.push({x:S.x+dv[0]*60,y:S.y+dv[1]*60,dx:dv[0],dy:dv[1],d:0,hit:[],mul:mul,hex:hex});
     }
   }else if(sk.type==='spin'||sk.type==='aoe'){
     S.mp-=sk.mp;cds[i]=sk.cd;spinA=1;
@@ -1008,8 +1042,18 @@ function useSkill(i){
     S.mp-=sk.mp;cds[i]=sk.cd;castA=1;
     buff=10;fxRing(p[0],p[1],p[2],hex,0.5,5,0.6);
     addLog(sk.n+' Aktif!');
+  }else if(sk.type==='dash'){
+    var dx,dy;
+    if(validTarget(target)){dx=target.ref.x-S.x;dy=target.ref.y-S.y}
+    else{var dv2=dirVec(face);dx=dv2[0];dy=dv2[1]}
+    var l=Math.sqrt(dx*dx+dy*dy)||1;
+    S.mp-=sk.mp;cds[i]=sk.cd;
+    charge={t:0,dur:0.28,dx:dx/l,dy:dy/l,hit:[],hex:hex};
+    face=Math.atan2(charge.dx,charge.dy);moveTo=null;
+    shakeCam(0.2);
   }
 }
+
 function usePotion(kind){
   if(dead||potCd>0)return;
   var p=pPos3();
@@ -1074,24 +1118,37 @@ function update(dt){
   }
 
   if(!dead){
-    var kx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0);
-    var ky=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);
-    if(kx||ky){
-      var fx=-Math.sin(camYaw),fz=-Math.cos(camYaw),rx=-fz,rz=fx;
-      var wx=fx*(-ky)+rx*kx,wy=fz*(-ky)+rz*kx,l=Math.sqrt(wx*wx+wy*wy)||1;
-      S.x+=wx/l*currentSpeed*dt;S.y+=wy/l*currentSpeed*dt;clampWorld(S);
-      face=Math.atan2(wx,wy);target=null;moveTo=null;moved=true;
-    }else if(validTarget(target)){
-      var tr=target.ref,rad=target.kind==='m'?tr.t.r:34,d=dist(S.x,S.y,tr.x,tr.y);
-      if(d<=60+rad){
-        faceTo(tr.x,tr.y);
-        if(atkCd<=0)playerAttack();
-      }else{faceTo(tr.x,tr.y);step(S,tr.x,tr.y,currentSpeed,dt);clampWorld(S);moved=true}
-    }else if(target){target=null}
-    else if(moveTo){
-      faceTo(moveTo.x,moveTo.y);
-      var rem=step(S,moveTo.x,moveTo.y,currentSpeed,dt);moved=true;
-      if(rem<4)moveTo=null;clampWorld(S);
+    if(charge){
+      charge.t+=dt;
+      var cs=1000*dt;S.x+=charge.dx*cs;S.y+=charge.dy*cs;clampWorld(S);moved=true;
+      forEnemies(function(k,e,rad){
+        if(charge.hit.indexOf(e)<0&&dist(e.x,e.y,S.x,S.y)<75+rad){
+          charge.hit.push(e);var r=rollDmg(pAtk(),skMul(3));dealTo(k,e,r.d,r.crit,charge.hex||0xffffff);
+          if(k==='m')e.stun=1.5;shakeCam(0.25);
+        }
+      });
+      if(charge.t>=charge.dur){charge=null}
+    }else{
+      var kx=(keys.d||keys.arrowright?1:0)-(keys.a||keys.arrowleft?1:0);
+      var ky=(keys.s||keys.arrowdown?1:0)-(keys.w||keys.arrowup?1:0);
+      if(kx||ky){
+        var fx=-Math.sin(camYaw),fz=-Math.cos(camYaw),rx=-fz,rz=fx;
+        var wx=fx*(-ky)+rx*kx,wy=fz*(-ky)+rz*kx,l=Math.sqrt(wx*wx+wy*wy)||1;
+        S.x+=wx/l*currentSpeed*dt;S.y+=wy/l*currentSpeed*dt;clampWorld(S);
+        face=Math.atan2(wx,wy);target=null;moveTo=null;moved=true;
+      }else if(validTarget(target)){
+        var tr=target.ref,rad=target.kind==='m'?tr.t.r:34,d=dist(S.x,S.y,tr.x,tr.y);
+        if(d<=60+rad){
+          faceTo(tr.x,tr.y);
+          if(atkCd<=0)playerAttack();
+        }else{faceTo(tr.x,tr.y);step(S,tr.x,tr.y,currentSpeed,dt);clampWorld(S);moved=true}
+      }else if(target){target=null}
+      else if(moveTo){
+        faceTo(moveTo.x,moveTo.y);
+        var rem=step(S,moveTo.x,moveTo.y,currentSpeed,dt);moved=true;
+        if(rem<4)moveTo=null;clampWorld(S);
+      }
+      if(autoHunt&&!target&&!moveTo&&!kx&&!ky){var nt=nearestTarget(380);if(nt)target=nt;}
     }
     var inSafe=dist(S.x,S.y,0,0)<SAFE_R;
     S.mp=Math.min(maxMp(),S.mp+maxMp()*0.02*dt*(inSafe?4:1));
@@ -1343,15 +1400,34 @@ function updateHud(){
     var tr=tg.ref;show=true;
     if(tg.kind==='m'){
       setTxt('tgName',tr.t.name+' (Sv '+tr.t.lvl+')');
-      setTxt('tgInfo','[Türü: '+tr.t.type+'] Zayıflık: '+tr.t.weak);
     }else{
       setTxt('tgName','Metin Taşı (Sv '+(tr.zi*5+5)+')');
-      setTxt('tgInfo','[Taş] İçinden Efsun Düşer');
     }
     setW('tgBar',tr.hp/tr.max*100);setTxt('tgTxt',Math.ceil(tr.hp)+' / '+tr.max);
   }
   if($('target').hidden===show)$('target').hidden=!show;
 }
+
+/* "i" Bilgi Butonuna Tıklama İşlevi */
+$('infoBtn').addEventListener('click', function(){
+  if(!validTarget(target))return;
+  var tr = target.ref;
+  if(target.kind === 'm'){
+    $('modalMobName').textContent = '[Sv '+tr.t.lvl+'] ' + tr.t.name;
+    $('modalMobType').textContent = tr.t.type;
+    $('modalMobWeak').textContent = tr.t.weak;
+    $('modalMobDrops').textContent = tr.t.drops;
+  }else{
+    $('modalMobName').textContent = 'Metin Taşı (Sv '+(tr.zi*5+5)+')';
+    $('modalMobType').textContent = 'Kaya / Taş';
+    $('modalMobWeak').textContent = 'Yüksek Hasar / Kritik';
+    $('modalMobDrops').textContent = 'Efsun Nesnesi, Arttırma Kağıdı, Kutsama Kağıdı, Nadir Ekipmanlar';
+  }
+  $('mobInfoModal').hidden = false;
+});
+$('closeMobInfoBtn').addEventListener('click', function(){
+  $('mobInfoModal').hidden = true;
+});
 
 function togglePanel(open){
   panelOpen=open===undefined?!panelOpen:open;
@@ -1369,16 +1445,19 @@ function itemEfsunTxt(it){
 }
 
 function itemRow(it,i){
+  var icon = ITEM_ICONS[it.type] || '📦';
   var isW = it.type==='w';
   var st = isW ? 'Saldırı '+itemStat(it) : 'Savunma '+itemStat(it);
-  return '<div class="row"><span class="nm" style="color:'+(TCOL[it.tier]||'#fff')+'">'+itemName(it)+'</span><span class="st">'+st+'</span>'+
+  return '<div class="row"><span class="nm" style="color:'+(TCOL[it.tier]||'#fff')+'"><span class="item-icon">'+icon+'</span>'+itemName(it)+'</span><span class="st">'+st+'</span>'+
     '<button type="button" data-act="equip" data-i="'+i+'">Kuşan</button>'+
     '<button type="button" data-act="sell" data-i="'+i+'">Sat '+itemValue(it)+'</button></div>';
 }
+
 function slotBox(label,it,slotKey){
-  if(!it)return '<div class="slot"><div class="lbl">'+label+'</div><div class="nm" style="color:var(--mute)">Boş</div></div>';
+  var icon = it ? (ITEM_ICONS[it.type] || '📦') : '🚫';
+  if(!it)return '<div class="slot"><div class="lbl">'+label+'</div><div class="nm" style="color:var(--mute)"><span class="item-icon">'+icon+'</span>Boş</div></div>';
   var st = it.type==='w'?'Saldırı ':'Savunma ';
-  return '<div class="slot"><div class="lbl">'+label+'</div><div class="nm" style="color:'+(TCOL[it.tier]||'#fff')+'">'+itemName(it)+'</div>'+
+  return '<div class="slot"><div class="lbl">'+label+'</div><div class="nm" style="color:'+(TCOL[it.tier]||'#fff')+'"><span class="item-icon">'+icon+'</span>'+itemName(it)+'</div>'+
     '<div class="st" style="color:var(--mute)">'+st+itemStat(it)+'</div>'+
     itemEfsunTxt(it)+
     '<div style="display:flex;gap:4px;margin-top:6px">'+
@@ -1450,19 +1529,11 @@ function renderPanel(){
     h+=upBox('weapon','Silah')+upBox('armor','Zırh')+upBox('helm','Kask')+upBox('shield','Kalkan')+upBox('necklace','Kolye')+upBox('earring','Küpe')+upBox('bracelet','Bilezik')+upBox('shoes','Ayakkabı');
   }else if(tab==='shop'){
     h+='<h3>Nesne Marketi</h3><div class="note">Mevcut Yang: <b style="color:var(--gold)">'+fmt(S.gold)+'</b></div>';
-    h+='<div class="row"><span class="nm">🟢 Efsun Nesnesi</span><button type="button" data-act="buyEfsunObj" data-cost="500">500 Yang</button></div>';
-    h+='<div class="row"><span class="nm">🔴 Arttırma Kağıdı</span><button type="button" data-act="buyEfsunAdd" data-cost="500">500 Yang</button></div>';
-    h+='<div class="row"><span class="nm">📜 Kutsama Kağıdı</span><button type="button" data-act="buyBless" data-cost="1000">1,000 Yang</button></div>';
-    h+='<div class="row"><span class="nm">☀️ Güneş Özütü (Oto HP)</span><button type="button" data-act="buyAutoHp" data-cost="2500">2,500 Yang</button></div>';
-    h+='<div class="row"><span class="nm">🌙 Ay Özütü (Oto MP)</span><button type="button" data-act="buyAutoMp" data-cost="2500">2,500 Yang</button></div>';
-  }else if(tab==='guide'){
-    h+='<h3>Düşman Bilgi & Efsun Rehberi</h3>';
-    for(var m=0;m<MT.length;m++){
-      var mob=MT[m];
-      h+='<div class="slot"><div class="nm" style="color:var(--gold)">[Sv '+mob.lvl+'] '+mob.name+' (Türü: '+mob.type+')</div>'+
-        '<div class="st" style="color:var(--text)">🎁 Düşenler: '+mob.drops+'</div>'+
-        '<div class="st" style="color:var(--jade)">⚡ Önerilen Efsun: '+mob.weak+'</div></div>';
-    }
+    h+='<div class="row"><span class="nm"><span class="item-icon">🟢</span> Efsun Nesnesi</span><button type="button" data-act="buyEfsunObj" data-cost="500">500 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">🔴</span> Arttırma Kağıdı</span><button type="button" data-act="buyEfsunAdd" data-cost="500">500 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">📜</span> Kutsama Kağıdı</span><button type="button" data-act="buyBless" data-cost="1000">1,000 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">☀️</span> Güneş Özütü (Oto HP)</span><button type="button" data-act="buyAutoHp" data-cost="2500">2,500 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">🌙</span> Ay Özütü (Oto MP)</span><button type="button" data-act="buyAutoMp" data-cost="2500">2,500 Yang</button></div>';
   }
   b.innerHTML=h;
 }
