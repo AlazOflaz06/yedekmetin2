@@ -32,13 +32,32 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 button:disabled{opacity:.45;cursor:not-allowed}
 h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px;color:var(--gold);letter-spacing:.02em}
 
+/* Karakter Üstündeki İsim & Level Etiketi */
+#playerLabel{
+  position:absolute;
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:13px;
+  color:#fff;
+  text-shadow:0 1px 3px #000, 0 0 6px #000;
+  pointer-events:none;
+  transform:translate(-50%,-100%);
+  white-space:nowrap;
+  z-index:4;
+  background:rgba(13,11,10,0.6);
+  padding:2px 8px;
+  border-radius:4px;
+  border:1px solid rgba(217,164,65,0.5);
+}
+#playerLabel b{color:var(--gold)}
+
 /* Giriş ve Karakter Seçim Ekranı */
-#loginScreen{position:absolute;inset:0;background:rgba(13,11,10,0.92);display:flex;align-items:center;justify-content:center;z-index:20;backdrop-filter:blur(6px)}
+#loginScreen{position:absolute;inset:0;background:rgba(13,11,10,0.94);display:flex;align-items:center;justify-content:center;z-index:20;backdrop-filter:blur(6px)}
 .login-box{background:var(--panel);border:1px solid var(--gold);border-radius:8px;padding:24px;width:min(440px,92vw);box-shadow:0 10px 30px rgba(0,0,0,0.8);text-align:center}
 .login-box h2{font-family:var(--font-display);color:var(--gold);font-size:26px;margin:0 0 14px}
-.login-box input{width:100%;padding:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;color:var(--gold);font-family:var(--font-display);font-size:16px;text-align:center;box-sizing:border-color;margin-bottom:16px;outline:none}
+.login-box input{width:100%;padding:10px;background:var(--bg);border:1px solid var(--line);border-radius:4px;color:var(--gold);font-family:var(--font-display);font-size:15px;text-align:center;box-sizing:border-box;margin-bottom:10px;outline:none}
 .login-box input:focus{border-color:var(--gold)}
-.class-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+.class-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0 18px}
 .class-card{background:var(--panel2);border:1px solid var(--line);border-radius:6px;padding:12px 8px;cursor:pointer;transition:all .15s;text-align:center}
 .class-card:hover,.class-card.on{border-color:var(--gold);background:#2d231c;box-shadow:0 0 8px rgba(217,164,65,0.3)}
 .class-card b{display:block;font-family:var(--font-display);color:var(--gold);font-size:15px;margin-bottom:4px}
@@ -124,12 +143,15 @@ table.stats td:last-child{text-align:right;font-variant-numeric:tabular-nums}
 <div id="app">
   <canvas id="c"></canvas>
   <div id="fx"></div>
+  <div id="playerLabel">Alaz Oflaz <b>(Sv 1)</b></div>
 
-  <!-- GİRİŞ VE KARAKTER SEÇİM EKRANI -->
+  <!-- GİRİŞ VE HESAP KONTROL EKRANI -->
   <div id="loginScreen">
     <div class="login-box">
       <h2>METİN AVCISI</h2>
-      <input type="text" id="charNameInput" maxlength="14" placeholder="Karakter İsmi..." value="Alaz Oflaz">
+      <input type="text" id="usernameInput" maxlength="16" placeholder="Kullanıcı Adı" value="AlazOflaz">
+      <input type="password" id="passwordInput" maxlength="16" placeholder="Şifre" value="123456">
+      
       <div class="class-grid">
         <div class="class-card on" data-cls="0">
           <b>Savaşçı</b>
@@ -148,7 +170,7 @@ table.stats td:last-child{text-align:right;font-variant-numeric:tabular-nums}
           <span>Yelpaze & Kutsal Büyü</span>
         </div>
       </div>
-      <button id="startGameBtn" type="button" style="width:100%;padding:12px;font-family:var(--font-display);font-size:16px;font-weight:700">Oyuna Başla</button>
+      <button id="startGameBtn" type="button" style="width:100%;padding:12px;font-family:var(--font-display);font-size:16px;font-weight:700">Hesaba Giriş Yap / Başla</button>
     </div>
   </div>
 
@@ -165,7 +187,7 @@ table.stats td:last-child{text-align:right;font-variant-numeric:tabular-nums}
   </div>
 
   <div id="menuBtns">
-    <button id="switchCharBtn" type="button">Karakter Seç</button>
+    <button id="switchCharBtn" type="button">Çıkış Yap</button>
     <button id="menuBtn" type="button">Çanta (I)</button>
   </div>
 
@@ -201,7 +223,7 @@ table.stats td:last-child{text-align:right;font-variant-numeric:tabular-nums}
     <p><span class="kbd">Tıkla:</span> yere tıkla yürü, canavara tıkla saldır. <span class="kbd">Sürükle</span> veya <span class="kbd">Q / E</span> ile kamerayı çevir, <span class="kbd">tekerlek</span> ile yakınlaş.</p>
     <p><span class="kbd">WASD / oklar:</span> yürü. <span class="kbd">1-6:</span> Sınıf becerileri. <span class="kbd">Z / X:</span> iksirler. <span class="kbd">F:</span> otomatik av. <span class="kbd">I:</span> çanta.</p>
     <p>Her seviyede 1 beceri puanı kazanırsın. Beceri sekmesinden becerilerini 10. seviyeye kadar geliştir. Mor <b>Metin taşlarını</b> kır, düşen eşyaları Yükselt sekmesinde +9'a kadar güçlendir.</p>
-    <p class="note">İlerleme tarayıcında otomatik kaydedilir.</p>
+    <p class="note">İlerleme tarayıcında kullanıcı adı ve şifrene otomatik kaydedilir.</p>
     <button id="helpOk" type="button" style="width:100%;margin-top:6px">Başla</button>
   </div>
 
@@ -266,14 +288,16 @@ var CLASSES=[
       {n:'Kükreme',mp:10,cd:4,lv:3,mul:2.0,col:'#ffd06b',d:'Yere vurarak geniş bir alanda kutsal patlama yaratır.'},
       {n:'Uçan Tılsım',mp:13,cd:5,lv:6,mul:1.7,col:'#ffc080',d:'Uzaktaki hedeflere çarpan kutsal ışık tılsımı fırlatır.'},
       {n:'Kutsama',mp:25,cd:16,lv:9,mul:1.0,col:'#ffe0a0',d:'Kutsal ışık çemberi çağırıp etraftaki düşmanları yakar.'},
-      {n:'İyileştirme',mp:15,cd:8,lv:12,mul:1.4,col:'#ffffff',d:'Kutsal enerjiyle kendini t tazeler ve yakınındakileri vurur.'},
+      {n:'İyileştirme',mp:15,cd:8,lv:12,mul:1.4,col:'#ffffff',d:'Kutsal enerjiyle kendini tazeler ve yakınındakileri vurur.'},
       {n:'Yansıtma',mp:20,cd:20,lv:15,mul:0.6,col:'#ffd36b',d:'Işık aurası saçarak rakipleri geriye püskürtür.'}
     ]
   }
 ];
 
 /* ---------- Veri ---------- */
-var SAVE_KEY='metin-avcisi-v2';
+var BASE_SAVE_KEY='metin-avcisi-acc-';
+var currentSaveKey=BASE_SAVE_KEY+'default';
+
 var WEAPONS=['','Tahta','Demir','Çelik','Ejder','Kızıl','Cennet'];
 var ARMORS=['','Deri Zırh','Demir Zırh','Çelik Zırh','Ejder Zırhı','Kızıl Zırh','Cennet Zırhı'];
 var WBASE=[0,10,24,48,90,160,280], ABASE=[0,3,7,14,26,45,75];
@@ -284,14 +308,14 @@ var ZTYPES=[[0,1],[1,2],[2,3],[3,4],[4,5]];
 
 /* Canavar Listesi */
 var MT=[
- {id:'dog',name:'Vahşi Köpek',lvl:1,hp:30,atk:5,xp:8,gold:[2,6],tier:1,r:14,aggro:130,spd:95,sc:0.75},
- {id:'wolf',name:'Kurt',lvl:4,hp:75,atk:9,xp:22,gold:[5,12],tier:1,r:15,aggro:150,spd:112,sc:0.95},
- {id:'monkey',name:'Dağ Maymunu',lvl:8,hp:150,atk:16,xp:48,gold:[10,24],tier:2,r:15,aggro:150,spd:105,sc:0.85},
- {id:'bandit',name:'Haydut',lvl:12,hp:280,atk:26,xp:95,gold:[20,45],tier:3,r:16,aggro:170,spd:100,sc:1.0},
- {id:'orc',name:'Ork Savaşçısı',lvl:17,hp:520,atk:42,xp:180,gold:[40,90],tier:4,r:19,aggro:170,spd:95,sc:1.3},
- {id:'tiger',name:'Kızıl Kaplan',lvl:22,hp:850,atk:64,xp:320,gold:[80,160],tier:5,r:20,aggro:200,spd:122,sc:1.3}
+ {id:'dog',name:'Vahşi Köpek',lvl:1,hp:30,atk:5,xp:12,gold:[2,6],tier:1,r:14,aggro:130,spd:95,sc:0.75},
+ {id:'wolf',name:'Kurt',lvl:4,hp:75,atk:9,xp:35,gold:[5,12],tier:1,r:15,aggro:150,spd:112,sc:0.95},
+ {id:'monkey',name:'Dağ Maymunu',lvl:8,hp:150,atk:16,xp:75,gold:[10,24],tier:2,r:15,aggro:150,spd:105,sc:0.85},
+ {id:'bandit',name:'Haydut',lvl:12,hp:280,atk:26,xp:145,gold:[20,45],tier:3,r:16,aggro:170,spd:100,sc:1.0},
+ {id:'orc',name:'Ork Savaşçısı',lvl:17,hp:520,atk:42,xp:270,gold:[40,90],tier:4,r:19,aggro:170,spd:95,sc:1.3},
+ {id:'tiger',name:'Kızıl Kaplan',lvl:22,hp:850,atk:64,xp:480,gold:[80,160],tier:5,r:20,aggro:200,spd:122,sc:1.3}
 ];
-var METIN_HP=[400,900,1800,3200,5200], METIN_XP=[120,320,700,1400,2600], METIN_GOLD=[80,200,420,800,1500];
+var METIN_HP=[400,900,1800,3200,5200], METIN_XP=[180,480,1050,2100,3900], METIN_GOLD=[80,200,420,800,1500];
 
 var SK_MAX=10;
 var WORLD_R=4000, SAFE_R=160, INV_MAX=20, TARGET_MONSTERS=80, SC=0.05;
@@ -325,9 +349,9 @@ function newState(name,clsIdx){
     skl:[1,1,1,1,1,1],sp:3
   };
 }
-function load(){
+function load(key){
   var s=null;
-  try{var raw=localStorage.getItem(SAVE_KEY);if(raw)s=JSON.parse(raw);}catch(e){s=null}
+  try{var raw=localStorage.getItem(key);if(raw)s=JSON.parse(raw);}catch(e){s=null}
   var base=newState('Alaz Oflaz',0);
   if(s&&typeof s==='object'){
     for(var k in base){if(s[k]!==undefined)base[k]=s[k];}
@@ -338,7 +362,7 @@ function load(){
   if(base.cls===undefined)base.cls=0;
   return base;
 }
-function save(){try{localStorage.setItem(SAVE_KEY,JSON.stringify(S));}catch(e){}}
+function save(){try{localStorage.setItem(currentSaveKey,JSON.stringify(S));}catch(e){}}
 
 function maxHp(){return 100+22*(S.lv-1)}
 function maxMp(){return 50+8*(S.lv-1)}
@@ -451,7 +475,6 @@ function groundColor(gx,gy,out){
   var m=new THREE.Mesh(g,new THREE.MeshLambertMaterial({vertexColors:true}));
   m.receiveShadow=true;scene.add(m);
 
-  // Çevre Dağları
   var mm=new THREE.MeshLambertMaterial({color:0x6e6258,flatShading:true});
   for(var k=0;k<80;k++){
     var a=k/80*Math.PI*2+R(-0.03,0.03),rr=(WORLD_R+200+R(-30,60))*SC,hh=R(18,48),rad=R(12,22);
@@ -460,7 +483,6 @@ function groundColor(gx,gy,out){
   }
 })();
 
-/* Sadece Hafif Kayalar (Ağaçlar kaldırıldı) */
 (function buildScenery(){
   var rocks=new THREE.InstancedMesh(GEO('dod',1,0),new THREE.MeshLambertMaterial({color:0xffffff,flatShading:true}),500);
   var nr=0,m4=new THREE.Matrix4(),q=new THREE.Quaternion(),p=new THREE.Vector3(),s=new THREE.Vector3(),e=new THREE.Euler(),c=new THREE.Color();
@@ -550,7 +572,6 @@ function buildHumanoid(o){
     P.cape=new THREE.Mesh(GEO('plane',0.74,1.25),new THREE.MeshLambertMaterial({color:o.cape,side:THREE.DoubleSide}));
     P.cape.position.set(0,1.28,-0.22);P.cape.castShadow=true;body.add(P.cape);
   }
-  // Silah Modelleri
   P.weapon=new THREE.Group();P.weapon.position.set(0,-0.84,0);P.weapon.rotation.x=Math.PI/2;P.armR.add(P.weapon);
   var wc=o.wcol||'#c9ced6';
   if(o.weapon==='sword'){
@@ -1186,7 +1207,7 @@ function hitAround(cx,cy,radius,mul,hex){
   return n;
 }
 
-/* ---------- Görsel Eşleme ---------- */
+/* ---------- Görsel Eşleme & Kafa Üstü Yazısı ---------- */
 function syncVisuals(dt){
   var p=pPos3();
   faceR+=angDiff(face,faceR)*Math.min(1,dt*16);
@@ -1196,6 +1217,14 @@ function syncVisuals(dt){
   pm.g.rotation.y=yaw;
   pm.P.body.rotation.x=charge?0.5:0;
   animHuman(pm,animT,pMove,swing,castA);
+
+  // Kafa Üstü İsim ve Seviye Etiketinin Konumu
+  _v.set(p[0], p[1] + 2.5, p[2]).project(camera);
+  if(_v.z <= 1){
+    var sx = (_v.x * 0.5 + 0.5) * W;
+    var sy = (-_v.y * 0.5 + 0.5) * H;
+    $('playerLabel').style.transform = 'translate3d(' + sx.toFixed(1) + 'px,' + sy.toFixed(1) + 'px,0) translate(-50%,-100%)';
+  }
 
   sun.position.set(p[0]+28,p[1]+46,p[2]+18);sun.target.position.set(p[0],p[1],p[2]);sun.target.updateMatrixWorld();
   sky.position.set(p[0],0,p[2]);
@@ -1275,10 +1304,15 @@ function buildSkillButtons(){
 }
 
 function updateHud(){
-  setTxt('tName', S.name || 'Alaz Oflaz');
+  var charName = S.name || 'Alaz Oflaz';
+  setTxt('tName', charName);
   setTxt('tClass', CLASSES[S.cls||0].name);
   setTxt('tLv','Sv '+S.lv);
   setTxt('tGold',fmt(S.gold));
+
+  // Karakter Üstü Etiketi Güncelle
+  $('playerLabel').innerHTML = charName + ' <b>(Sv ' + S.lv + ')</b>';
+
   var rr=dist(S.x,S.y,0,0);
   setTxt('tZone',rr<SAFE_R?'Köy':ZONES[zoneOf(rr)]);
   setW('hpBar',S.hp/maxHp()*100);setTxt('hpTxt',Math.ceil(S.hp)+' / '+maxHp());
@@ -1372,12 +1406,12 @@ function renderPanel(){
       '<tr><td>Öldürülen canavar</td><td>'+fmt(S.kills)+'</td></tr>'+
       '<tr><td>Kırılan Metin taşı</td><td>'+fmt(S.metins)+'</td></tr>'+
       '<tr><td>Oynama süresi</td><td>'+m+' dk</td></tr></table>';
-    h+='<div style="margin-top:18px">'+(resetArm?'<div class="msg bad">Tüm ilerleme silinecek.</div><button type="button" data-act="reset2" style="width:100%;border-color:var(--blood)">Evet, sıfırla</button>':'<button type="button" data-act="reset" style="width:100%">Oyunu sıfırla</button>')+'</div>';
+    h+='<div style="margin-top:18px">'+(resetArm?'<div class="msg bad">Tüm ilerleme silinecek.</div><button type="button" data-act="reset2" style="width:100%;border-color:var(--blood)">Evet, sıfırla</button>':'<button type="button" data-act="reset" style="width:100%">Hesabı Sıfırla</button>')+'</div>';
   }
   b.innerHTML=h;
 }
 
-/* ---------- Olay Dinleyicileri ---------- */
+/* ---------- Olay Dinleyicileri & Giriş Kayıt Sistemi ---------- */
 document.querySelectorAll('.class-card').forEach(function(card){
   card.addEventListener('click',function(){
     document.querySelectorAll('.class-card').forEach(function(c){c.classList.remove('on')});
@@ -1387,17 +1421,30 @@ document.querySelectorAll('.class-card').forEach(function(card){
 });
 
 $('startGameBtn').addEventListener('click',function(){
-  var nameInput = $('charNameInput').value.trim() || 'Alaz Oflaz';
-  S = newState(nameInput, selectedClassIdx);
+  var userVal = $('usernameInput').value.trim() || 'AlazOflaz';
+  var passVal = $('passwordInput').value.trim() || '123456';
+  
+  // Hesaba Özel Benzersiz Anahtar Oluştur
+  currentSaveKey = BASE_SAVE_KEY + userVal + '_' + passVal;
+
+  var existing = localStorage.getItem(currentSaveKey);
+  if(existing){
+    S = load(currentSaveKey);
+    addLog('Hesaba giriş yapıldı. Kaldığın yerden devam ediyorsun!');
+  } else {
+    S = newState(userVal, selectedClassIdx);
+    addLog('Yeni hesap oluşturuldu. Maceraya hoş geldin, ' + S.name + '!');
+  }
+
   $('loginScreen').hidden = true;
   buildSkillButtons();
   rebuildPlayer();
   initWorld();
   save();
-  addLog('Maceraya hoş geldin, ' + S.name + '!');
 });
 
 $('switchCharBtn').addEventListener('click',function(){
+  save();
   $('loginScreen').hidden = false;
 });
 
@@ -1431,8 +1478,8 @@ $('pbody').addEventListener('click',function(e){
     rebuildPlayer();
   }else if(act==='reset'){resetArm=true}
   else if(act==='reset2'){
-    try{localStorage.removeItem(SAVE_KEY)}catch(err){}
-    S=newState('Alaz Oflaz',0);initWorld();rebuildPlayer();target=null;moveTo=null;buff=0;orbs=null;resetArm=false;dead=false;$('dead').hidden=true;
+    try{localStorage.removeItem(currentSaveKey)}catch(err){}
+    S=newState($('usernameInput').value.trim()||'AlazOflaz',0);initWorld();rebuildPlayer();target=null;moveTo=null;buff=0;orbs=null;resetArm=false;dead=false;$('dead').hidden=true;
   }
   renderPanel();
 });
@@ -1442,7 +1489,7 @@ $('pHp').addEventListener('click',function(){usePotion('hp')});
 $('pMp').addEventListener('click',function(){usePotion('mp')});
 function toggleAuto(){autoHunt=!autoHunt;$('auto').classList.toggle('on',autoHunt);$('autoTxt').textContent=autoHunt?'açık':'kapalı'}
 $('auto').addEventListener('click',toggleAuto);
-$('helpOk').addEventListener('click',function(){$('help').hidden=true;try{localStorage.setItem(SAVE_KEY+'-help','1')}catch(e){}});
+$('helpOk').addEventListener('click',function(){$('help').hidden=true;try{localStorage.setItem('metin-avcisi-help','1')}catch(e){}});
 
 window.addEventListener('keydown',function(e){
   var k=e.key.toLowerCase();
@@ -1540,14 +1587,12 @@ function frame(ts){
 window.addEventListener('visibilitychange',function(){if(document.hidden)save()});
 window.addEventListener('pagehide',save);
 
-S=load();
-if(S.hp<=0||S.hp>maxHp())S.hp=maxHp();
-if(S.mp>maxMp())S.mp=maxMp();
+S=newState('AlazOflaz',0);
 resize();
 buildSkillButtons();
 initWorld();
 rebuildPlayer();
-try{if(localStorage.getItem(SAVE_KEY+'-help'))$('help').hidden=true}catch(e){}
+try{if(localStorage.getItem('metin-avcisi-help'))$('help').hidden=true}catch(e){}
 requestAnimationFrame(frame);
 })();
 </script>
