@@ -1,5 +1,5 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
-<title>Metin Avcısı 3D - Classic System & Info Button</title>
+<title>Metin Avcısı 3D - Ultimate Stone & Socket System</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Philosopher:wght@400;700&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
@@ -32,7 +32,6 @@ button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
 button:disabled{opacity:.45;cursor:not-allowed}
 h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px;color:var(--gold);letter-spacing:.02em}
 
-/* Kafa Üstü Etiketler */
 .mobLabel{
   position:absolute;
   font-family:var(--font-display);
@@ -88,13 +87,11 @@ h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px
 #top span{color:var(--mute)}
 #top .gold{color:var(--gold);font-variant-numeric:tabular-nums}
 
-/* Hedef Paneli ve Bilgi Butonu */
 #target{position:absolute;top:64px;left:50%;transform:translateX(-50%);width:min(320px,50vw);background:rgba(27,22,19,.9);border:1px solid var(--line);padding:8px 12px;border-radius:4px;text-align:center;display:flex;align-items:center;justify-content:space-between;gap:8px}
 #target .tg-content{flex:1}
 #target .nm{font-family:var(--font-display);font-size:14px;margin-bottom:4px}
 #infoBtn{background:var(--gold);color:#000;font-weight:700;border-radius:50%;width:26px;height:26px;padding:0;line-height:26px;border:none;flex-shrink:0;box-shadow:0 0 8px rgba(217,164,65,0.6)}
 
-/* Pop-up Canavar Bilgi Modalı */
 #mobInfoModal{position:absolute;inset:0;background:rgba(0,0,0,0.75);display:flex;align-items:center;justify-content:center;z-index:25;backdrop-filter:blur(4px)}
 .mob-info-card{background:var(--panel);border:2px solid var(--gold);border-radius:8px;padding:20px;width:min(380px,90vw);box-shadow:0 10px 30px rgba(0,0,0,0.9)}
 .mob-info-card h3{margin-top:0;font-size:18px;border-bottom:1px solid var(--line);padding-bottom:8px}
@@ -109,11 +106,11 @@ h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px
 .xp i{background:linear-gradient(#e0b24a,#a87a1e)}
 .tg i{background:linear-gradient(#d9473b,#9c241b)}
 
-#hud{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);width:min(760px,calc(100% - 24px));display:flex;flex-direction:column;gap:6px;background:rgba(27,22,19,.92);border:1px solid var(--line);padding:10px;border-radius:4px}
+#hud{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);width:min(820px,calc(100% - 24px));display:flex;flex-direction:column;gap:6px;background:rgba(27,22,19,.92);border:1px solid var(--line);padding:10px;border-radius:4px}
 #bars{display:grid;grid-template-columns:1fr 1fr;gap:6px}
 #bars .xp{grid-column:1/-1;height:8px}
-#skills{display:flex;gap:6px;flex-wrap:wrap}
-.sk{position:relative;flex:1 1 0;min-width:50px;padding:6px 2px;text-align:center;font-size:11px;overflow:hidden;line-height:1.2}
+#skills{display:flex;gap:4px;flex-wrap:wrap}
+.sk{position:relative;flex:1 1 0;min-width:46px;padding:6px 2px;text-align:center;font-size:11px;overflow:hidden;line-height:1.2}
 .sk kbd{display:block;font-family:var(--font-display);font-weight:700;color:var(--gold);font-size:12px}
 .sk small{display:block;color:var(--mute);font-size:9px}
 .sk .cd{position:absolute;left:0;right:0;bottom:0;height:0;background:rgba(0,0,0,.7);pointer-events:none}
@@ -122,14 +119,13 @@ h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px
 .sk.pot{flex:.8 1 0}
 
 #menuBtns{position:absolute;top:12px;right:16px;display:flex;gap:8px}
-#panel{position:absolute;top:0;right:0;bottom:0;width:min(400px,100%);background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;z-index:10}
+#panel{position:absolute;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--panel);border-left:1px solid var(--line);display:flex;flex-direction:column;z-index:10}
 #tabs{display:flex;border-bottom:1px solid var(--line)}
 #tabs button{flex:1;border:0;border-radius:0;background:transparent;padding:12px 2px;font-family:var(--font-display);font-weight:700;font-size:11px;color:var(--mute);border-bottom:2px solid transparent}
 #tabs button.on{color:var(--gold);border-bottom-color:var(--gold)}
 #pbody{flex:1;overflow-y:auto;padding:14px;min-height:0}
 #pclose{margin:10px 14px 14px;width:calc(100% - 28px)}
 
-/* İtem Görsel Simgeleri */
 .item-icon{width:32px;height:32px;background:#110e0c;border:1px solid var(--gold);border-radius:4px;display:inline-flex;align-items:center;justify-content:center;font-size:18px;margin-right:8px;vertical-align:middle;box-shadow:inset 0 0 5px rgba(0,0,0,0.8)}
 
 .equipment-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
@@ -140,6 +136,7 @@ h3{font-family:var(--font-display);font-weight:700;font-size:16px;margin:0 0 8px
 .slot .lbl{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
 .slot .nm{font-family:var(--font-display);font-size:14px;margin:2px 0;display:flex;align-items:center}
 .slot .efs{font-size:10px;color:var(--jade);margin-top:2px}
+.slot .socket{font-size:10px;color:#8ff3ff;margin-top:2px}
 .msg{margin:10px 0;padding:8px 10px;border-radius:4px;background:var(--panel2);border-left:3px solid var(--gold);font-size:13px}
 .skrow{padding:10px 0;border-bottom:1px solid var(--line)}
 .skrow .h b{font-family:var(--font-display);font-size:15px}
@@ -162,14 +159,13 @@ table.stats td:last-child{text-align:right}
   <div id="playerLabel">Alaz Oflaz <b>(Sv 1)</b></div>
   <div id="mobLabels"></div>
 
-  <!-- GİRİŞ EKRANI -->
   <div id="loginScreen">
     <div class="login-box">
-      <h2>METİN AVCISI 3D</h2>
+      <h2>METIN AVCISI 3D</h2>
       <input type="text" id="usernameInput" maxlength="16" placeholder="Kullanıcı Adı" value="AlazOflaz">
       <input type="password" id="passwordInput" maxlength="16" placeholder="Şifre" value="123456">
       
-      <div style="margin-top:10px;font-size:12px;color:var(--gold);text-align:left">Karakter ve Doktrin Seçimi:</div>
+      <div style="margin-top:10px;font-size:12px;color:var(--gold);text-align:left">Karakter Seçimi:</div>
       <div class="char-select-grid" id="charSelectGrid"></div>
 
       <button id="startGameBtn" type="button" style="width:100%;padding:12px;font-family:var(--font-display);font-size:16px;font-weight:700">Oyuna Başla</button>
@@ -178,13 +174,12 @@ table.stats td:last-child{text-align:right}
 
   <div id="top">
     <b id="tName">Alaz Oflaz</b>
-    <span id="tClass" style="color:var(--gold)">Bedensel Savaşçı</span>
+    <span id="tClass" style="color:var(--gold)">Zihinsel Savaşçı</span>
     <b id="tLv">Sv 1</b>
     <span id="tZone">Başlangıç Vadisi</span>
     <span>Yang: <b class="gold" id="tGold" style="font-size:14px">0</b></span>
   </div>
 
-  <!-- HEDEF VE BİLGİ BUTONU -->
   <div id="target" hidden>
     <div class="tg-content">
       <div class="nm" id="tgName"></div>
@@ -193,7 +188,6 @@ table.stats td:last-child{text-align:right}
     <button id="infoBtn" type="button" title="Canavar Bilgisi">i</button>
   </div>
 
-  <!-- POPUP BİLGİ EKRANI -->
   <div id="mobInfoModal" hidden>
     <div class="mob-info-card">
       <h3 id="modalMobName">Canavar Adı</h3>
@@ -228,7 +222,7 @@ table.stats td:last-child{text-align:right}
   <aside id="panel" hidden>
     <div id="tabs">
       <button type="button" data-tab="inv" class="on">Ekipman</button>
-      <button type="button" data-tab="stats">Statü</button>
+      <button type="button" data-tab="stats">Statü (C)</button>
       <button type="button" data-tab="skills">Beceriler</button>
       <button type="button" data-tab="up">Yükselt/Efsun</button>
       <button type="button" data-tab="shop">Dükkan</button>
@@ -253,88 +247,25 @@ if(typeof THREE==='undefined')return;
 
 var cv=$('c'), W=0, H=0;
 
-/* ---------- Sınıflar ve ESKİ DÜZEN BECERİLER ---------- */
+/* COOLDOWN (CD) SIFIRLANDI */
+var SK=[
+ {n:'Ruh Vuruşu',mp:10,cd:0,lv:1,mul:2.6,col:'#6fb6ff',d:'Hedefe ruhsal enerji yüklü ağır bir darbe indirir.',type:'single'},
+ {n:'Güçlü Vuruş',mp:8,cd:0,lv:3,mul:1.9,col:'#ffd36b',d:'Etrafında dönerek yakındaki düşmanlara geniş bir kılıç darbesi vurur.',type:'spin'},
+ {n:'Kılıç Darbesi',mp:14,cd:0,lv:6,mul:1.6,col:'#ff8a4a',d:'İleri fırlayan, düşmanları delip geçen bir kılıç dalgası yollar.',type:'proj'},
+ {n:'Kılıç Küresi',mp:24,cd:0,lv:9,mul:0.9,col:'#8ff3ff',d:'8 saniye boyunca etrafında dönen kılıç küreleri çağırır.',type:'buff'},
+ {n:'Hücum',mp:12,cd:0,lv:12,mul:1.5,col:'#ffffff',d:'İleri atılır, yoldaki düşmanları vurup sersemletir.',type:'dash'},
+ {n:'Korku',mp:22,cd:0,lv:15,mul:0.5,col:'#a45cff',d:'Yakındaki düşmanları korkutup kaçırır, hafif hasar verir.',type:'aoe'}
+];
+
 var CLASSES=[
-  {
-    name:'Bedensel Savaşçı',wName:'Kılıç',avatar:'⚔️',
-    skills:[
-      {n:'Kılıç Rüzgarı',mp:10,cd:3,type:'proj',mul:2.4,col:'#ff8a4a',d:'Öne yıkıcı kılıç rüzgarı dalgası fırlatır.'},
-      {n:'Kılıç Çevirme',mp:12,cd:3,type:'spin',mul:2.6,col:'#ffd36b',d:'Alevler içinde dönerek etrafı doğrar.'},
-      {n:'Hava Kılıcı',mp:25,cd:18,type:'buff',mul:1.4,col:'#8ff3ff',d:'Kılıcı mavi aura ile kaplar, hasarı yükseltir.'},
-      {n:'Hamle',mp:14,cd:8,type:'dash',mul:1.8,col:'#ffffff',d:'Hedefe fırlayarak şok dalgası açar.'},
-      {n:'Öfke Patlaması',mp:20,cd:14,type:'aoe',mul:2.2,col:'#ff4a4a',d:'Etrafa devasa kırmızı şok dalgası saçar.'}
-    ]
-  },
-  {
-    name:'Zihinsel Savaşçı',wName:'Çift-El',avatar:'🛡️',
-    skills:[
-      {n:'Ruh Vuruşu',mp:14,cd:4,type:'single',mul:3.4,col:'#6fb6ff',d:'Devasa ruhsal kılıç darbesi indirir.'},
-      {n:'Şiddetli Vuruş',mp:12,cd:3,type:'aoe',mul:2.2,col:'#4a78c9',d:'Yere vurarak öndeki yer kabuğunu çatlatır.'},
-      {n:'Güçlü Beden',mp:22,cd:20,type:'buff',mul:0.7,col:'#e5b84d',d:'Mavi altın zırh aura çağırır.'},
-      {n:'Kılıç Darbesi',mp:16,cd:6,type:'proj',mul:2.0,col:'#ffd06b',d:'Uzaktaki hedefe enerji mermisi atar.'},
-      {n:'Püskürtme',mp:18,cd:10,type:'aoe',mul:2.1,col:'#a45cff',d:'Düşmanları geri savuran aura patlatır.'}
-    ]
-  },
-  {
-    name:'Yakın Dövüş Ninja',wName:'Hançer',avatar:'🗡️',
-    skills:[
-      {n:'Suikast',mp:12,cd:3,type:'single',mul:3.2,col:'#3fe082',d:'Arkaya ışınlanıp ölümcül saplama yapar.'},
-      {n:'Bıçak Çevirme',mp:10,cd:4,type:'spin',mul:2.4,col:'#6fe0b0',d:'Çift hançerle dönerek doğrar.'},
-      {n:'Hızlı Saldırı',mp:14,cd:5,type:'dash',mul:1.9,col:'#a8ffb2',d:'Işık hızında öne atılır.'},
-      {n:'Kamufle',mp:18,cd:15,type:'buff',mul:0.6,col:'#80e080',d:'Gizlenir ve kritik kazanır.'},
-      {n:'Zehirli Bulut',mp:22,cd:12,type:'aoe',mul:1.6,col:'#5ae05a',d:'Etrafa zehirli gaz saçar.'}
-    ]
-  },
-  {
-    name:'Uzak Dövüş Ninja',wName:'Yay',avatar:'🏹',
-    skills:[
-      {n:'Tekrarlanan Atış',mp:10,cd:3,type:'proj',mul:2.5,col:'#ffb86f',d:'Seri 3 ok fırlatır.'},
-      {n:'Ok Yağmuru',mp:15,cd:5,type:'aoe',mul:2.0,col:'#ffd06b',d:'Gökten alan üzerine ok yağdırır.'},
-      {n:'Ateşli Ok',mp:18,cd:6,type:'proj',mul:2.9,col:'#ff4a3a',d:'Alevli ok atıp patlatır.'},
-      {n:'Hafif Adım',mp:12,cd:14,type:'buff',mul:0.5,col:'#ffffff',d:'Hareket hızını katlar.'},
-      {n:'Zehirli Ok',mp:20,cd:10,type:'proj',mul:2.2,col:'#80e05a',d:'Zehirleyen yeşil ok fırlatır.'}
-    ]
-  },
-  {
-    name:'Büyülü Silah Sura',wName:'Büyülü Kılıç',avatar:'🔮',
-    skills:[
-      {n:'Büyülü Keskinlik',mp:22,cd:15,type:'buff',mul:1.3,col:'#e07ff5',d:'Kılıcı mor alevlerle kaplar.'},
-      {n:'Ejderha Dönüşü',mp:12,cd:4,type:'spin',mul:2.2,col:'#a45cff',d:'Karanlık hortum çıkarır.'},
-      {n:'Büyülü Zırh',mp:18,cd:18,type:'buff',mul:0.7,col:'#b86ff5',d:'Koruyucu büyü zırhı açar.'},
-      {n:'Dehşet',mp:20,cd:20,type:'buff',mul:0.6,col:'#6f3ae0',d:'Rakip saldırılarını kırar.'},
-      {n:'Parmak Darbesi',mp:14,cd:5,type:'single',mul:2.6,col:'#d68ff5',d:'Öne büyü patlaması atar.'}
-    ]
-  },
-  {
-    name:'Kara Büyü Sura',wName:'Kara Büyü',avatar:'💀',
-    skills:[
-      {n:'Karanlık Koruma',mp:20,cd:18,type:'buff',mul:0.8,col:'#9f5cf5',d:'Karanlık kalkan açar.'},
-      {n:'Ateş Hayaleti',mp:25,cd:22,type:'buff',mul:1.2,col:'#ff4a6f',d:'Otomatik ateş küreleri çıkarır.'},
-      {n:'Karanlık Küre',mp:16,cd:7,type:'proj',mul:3.2,col:'#6f3ae0',d:'Devasa mor büyü küresi fırlatır.'},
-      {n:'Karanlık Vuruş',mp:10,cd:3,type:'proj',mul:2.2,col:'#b86ff5',d:'Seri mor büyü dalgası atar.'},
-      {n:'Hayalet Vuruş',mp:12,cd:4,type:'aoe',mul:1.9,col:'#d68ff5',d:'Kasırga fırlatır.'}
-    ]
-  },
-  {
-    name:'Ejderha Gücü Şaman',wName:'Yelpaze',avatar:'🪭',
-    skills:[
-      {n:'Uçan Tılsım',mp:11,cd:3,type:'proj',mul:2.3,col:'#ff9a52',d:'Kutsal ışık tılsımı atar.'},
-      {n:'Ejderha Atışı',mp:13,cd:4,type:'proj',mul:2.6,col:'#ff8a3a',d:'Alev ejderhası fırlatır.'},
-      {n:'Ejderha Kükremesi',mp:16,cd:6,type:'aoe',mul:2.3,col:'#ffd06b',d:'Geniş alan alev patlaması yapar.'},
-      {n:'Kutsama',mp:22,cd:20,type:'buff',mul:0.8,col:'#ffe0a0',d:'Hasar direncini artırır.'},
-      {n:'Yansıtma',mp:20,cd:20,type:'buff',mul:0.6,col:'#ffffff',d:'Gelen hasarı yansıtır.'}
-    ]
-  },
-  {
-    name:'İyileştirmeci Şaman',wName:'Çan',avatar:'🔔',
-    skills:[
-      {n:'Şimşek Atma',mp:12,cd:3,type:'proj',mul:2.5,col:'#6fe0ff',d:'Hedefe şimşek çaktırır.'},
-      {n:'Şimşek Pençesi',mp:14,cd:5,type:'aoe',mul:2.1,col:'#4ab8ff',d:'Şimşekler düşmanda seker.'},
-      {n:'İyileştirme',mp:18,cd:8,type:'buff',mul:1.5,col:'#ffffff',d:'Anında can tazeler.'},
-      {n:'Yüksek Hız',mp:15,cd:15,type:'buff',mul:0.5,col:'#8ff3ff',d:'Büyü hızını artırır.'},
-      {n:'Şimşek Çağırma',mp:20,cd:10,type:'aoe',mul:2.8,col:'#3a8aff',d:'Devasa şimşek sütunu indirir.'}
-    ]
-  }
+  { name:'Zihinsel Savaşçı', wName:'Çift-El', avatar:'🛡️', skills:SK },
+  { name:'Bedensel Savaşçı', wName:'Kılıç', avatar:'⚔️', skills:SK },
+  { name:'Yakın Dövüş Ninja', wName:'Hançer', avatar:'🗡️', skills:SK },
+  { name:'Uzak Dövüş Ninja', wName:'Yay', avatar:'🏹', skills:SK },
+  { name:'Büyülü Silah Sura', wName:'Büyülü Kılıç', avatar:'🔮', skills:SK },
+  { name:'Kara Büyü Sura', wName:'Kara Büyü', avatar:'💀', skills:SK },
+  { name:'Ejderha Gücü Şaman', wName:'Yelpaze', avatar:'🪭', skills:SK },
+  { name:'İyileştirmeci Şaman', wName:'Çan', avatar:'🔔', skills:SK }
 ];
 
 var BASE_SAVE_KEY='metin-avcisi-acc-';
@@ -343,10 +274,7 @@ var currentAccountPass='123456';
 var selectedSlotIdx=0;
 var currentSaveKey='';
 
-/* İtem Türleri ve İkonları */
-var ITEM_ICONS={
-  w:'🗡️', a:'🛡️', helm:'🪖', shield:'🛡️', necklace:'📿', earring:'💎', bracelet:'💍', shoes:'🥾'
-};
+var ITEM_ICONS={ w:'🗡️', a:'🛡️', helm:'🪖', shield:'🛡️', necklace:'📿', earring:'💎', bracelet:'💍', shoes:'🥾' };
 
 var WEAPONS=['','Tahta','Demir','Çelik','Ejder','Kızıl','Cennet'];
 var ARMORS=['','Deri Zırh','Demir Zırh','Çelik Zırh','Ejder Zırhı','Kızıl Zırh','Cennet Zırhı'];
@@ -379,16 +307,16 @@ var MT=[
 ];
 var METIN_HP=[400,900,1800,3200,5200], METIN_XP=[260,700,1500,3000,5500], METIN_GOLD=[80,200,420,800,1500];
 
-var SK_MAX=10, MAX_LV=99, WORLD_R=4000, SAFE_R=160, INV_MAX=24, TARGET_MONSTERS=80, SC=0.05;
+var SK_MAX=10, MAX_LV=99, WORLD_R=2050, SAFE_R=140, INV_MAX=100, TARGET_MONSTERS=90, SC=0.05;
 
 function R(a,b){return a+Math.random()*(b-a)}
 function RI(a,b){return Math.floor(R(a,b+1))}
-function zoneOf(r){return r<800?0:r<1600?1:r<2400?2:r<3200?3:4}
+function zoneOf(r){return r<450?0:r<900?1:r<1300?2:r<1700?3:4}
 function dist(ax,ay,bx,by){var dx=ax-bx,dy=ay-by;return Math.sqrt(dx*dx+dy*dy)}
 function angDiff(a,b){var d=a-b;while(d>Math.PI)d-=Math.PI*2;while(d<-Math.PI)d+=Math.PI*2;return d}
 
 var S,monsters=[],metins=[],drops=[],floats=[],T=0;
-var target=null,moveTo=null,buff=0,cds=[0,0,0,0,0],atkCd=0,lastHit=-99,dead=false,autoHunt=false,potCd=0;
+var target=null,moveTo=null,buff=0,cds=[0,0,0,0,0,0],atkCd=0,lastHit=-99,dead=false,autoHunt=false,potCd=0;
 var mounted=false, mountModel=null;
 var panelOpen=false,tab='inv',upMsg='';
 var keys={};
@@ -404,18 +332,19 @@ function newState(name,clsIdx){
     lv:1,xp:0,gold:500,
     vit:10, int:10, str:10, dex:10, statPts:3,
     hp:120, mp:60, x:0, y:0,
-    weapon:{type:'w',tier:1,plus:0,efs:[]},
-    armor:{type:'a',tier:1,plus:0,efs:[]},
+    weapon:{type:'w',tier:1,plus:0,efs:[],stones:[]},
+    armor:{type:'a',tier:1,plus:0,efs:[],stones:[]},
     helm:{type:'helm',tier:1,plus:0,efs:[]},
     shield:{type:'shield',tier:1,plus:0,efs:[]},
-    necklace:{type:'necklace',tier:1,plus:0,efs:[]},
-    earring:{type:'earring',tier:1,plus:0,efs:[]},
-    bracelet:{type:'bracelet',tier:1,plus:0,efs:[]},
+    necklace:{type:'necklace',tier:1,plus:0,efs:[],socket:0},
+    earring:{type:'earring',tier:1,plus:0,efs:[],socket:0},
+    bracelet:{type:'bracelet',tier:1,plus:0,efs:[],socket:0},
     shoes:{type:'shoes',tier:1,plus:0,efs:[]},
     inv:[],hpPot:10,mpPot:5,blessPaper:3,efsunObj:5,efsunAdd:5,
+    stMonster:0, stMetin:0, stLife:0, stSpeed:0, oreJewel:0,
     autoHpPot:0, autoMpPot:0, autoHpOn:false, autoMpOn:false,
     kills:0,metins:0,play:0,
-    skl:[1,1,1,1,1],sp:2
+    skl:[1,1,1,1,1,1],sp:2
   };
 }
 
@@ -428,7 +357,7 @@ function loadSlotData(slot){
   var base=newState('Alaz Oflaz', slot);
   if(s&&typeof s==='object'){for(var k in base){if(s[k]!==undefined)base[k]=s[k];}}
   if(!Array.isArray(base.inv))base.inv=[];
-  if(!Array.isArray(base.skl)||base.skl.length!==5)base.skl=[1,1,1,1,1];
+  if(!Array.isArray(base.skl)||base.skl.length!==6)base.skl=[1,1,1,1,1,1];
   if(base.cls===undefined)base.cls=slot;
   return base;
 }
@@ -438,11 +367,17 @@ function save(){try{if(currentSaveKey)localStorage.setItem(currentSaveKey,JSON.s
 function mult(p){return 1+0.25*p}
 function itemStat(it){
   if(!it)return 0;
-  if(it.type==='w')return Math.round(WBASE[it.tier]*mult(it.plus));
-  if(it.type==='a')return Math.round(ABASE[it.tier]*mult(it.plus));
-  if(it.type==='helm'||it.type==='shield')return Math.round(it.tier*4*mult(it.plus));
-  return Math.round(it.tier*3*mult(it.plus));
+  var st = 0;
+  if(it.type==='w') st = Math.round(WBASE[it.tier]*mult(it.plus));
+  else if(it.type==='a') st = Math.round(ABASE[it.tier]*mult(it.plus));
+  else if(it.type==='helm'||it.type==='shield') st = Math.round(it.tier*4*mult(it.plus));
+  else st = Math.round(it.tier*3*mult(it.plus));
+
+  /* Cevher Bonusu */
+  if(it.socket) st += (it.socket * 10);
+  return st;
 }
+
 function itemName(it){
   if(!it)return 'Boş';
   var cls = S ? S.cls : 0;
@@ -474,9 +409,20 @@ function totalEfsun(key){
   return tot;
 }
 
-function maxHp(){return 100 + (S.vit*15) + (S.lv*10) + itemStat(S.bracelet)*10 + totalEfsun('hp');}
+function stoneBonus(type){
+  var b=0;
+  if(S.weapon && Array.isArray(S.weapon.stones)){
+    for(var i=0;i<S.weapon.stones.length;i++){if(S.weapon.stones[i]===type)b+=25;}
+  }
+  if(S.armor && Array.isArray(S.armor.stones)){
+    for(var j=0;j<S.armor.stones.length;j++){if(S.armor.stones[j]===type)b+=25;}
+  }
+  return b;
+}
+
+function maxHp(){return 100 + (S.vit*15) + (S.lv*10) + itemStat(S.bracelet)*10 + totalEfsun('hp') + (stoneBonus('life')*20);}
 function maxMp(){return 50 + (S.int*10) + (S.lv*5) + itemStat(S.necklace)*10;}
-function pAtk(){return Math.round((6 + (S.str*2) + (S.dex*0.8) + (S.lv*2) + (S.weapon?itemStat(S.weapon):0) + totalEfsun('atk') + (mounted?35:0)) * (buff>0?1.5:1));}
+function pAtk(){return Math.round((6 + (S.str*2) + (S.dex*0.8) + (S.lv*2) + (S.weapon?itemStat(S.weapon):0) + totalEfsun('atk') + (mounted?50:0)) * (buff>0?1.5:1));}
 function aDef(){
   var d = S.armor ? itemStat(S.armor) : 0;
   d += itemStat(S.helm) + itemStat(S.shield) + itemStat(S.necklace) + itemStat(S.earring) + itemStat(S.bracelet) + itemStat(S.shoes);
@@ -492,7 +438,7 @@ function addLog(msg){
   setTimeout(function(){if(d.parentNode)d.parentNode.removeChild(d)},7200);
 }
 
-/* ---------- Three.js Engine ---------- */
+/* Engine */
 var renderer=new THREE.WebGLRenderer({canvas:cv,antialias:true,powerPreference:'high-performance'});
 renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
 var scene=new THREE.Scene();
@@ -545,7 +491,7 @@ function MAT(c,kind){
 var FLASH=new THREE.MeshBasicMaterial({color:0xffffff});
 function setFlash(model,on){var ms=model.ms;for(var i=0;i<ms.length;i++)ms[i].material=on?FLASH:ms[i].userData.m0}
 
-/* Arazi */
+/* Terrain */
 function hAt(gx,gy){
   var r=Math.sqrt(gx*gx+gy*gy),f=Math.min(1,Math.max(0,(r-150)/200));f=f*f*(3-2*f);
   var h=Math.sin(gx*0.0021)*Math.cos(gy*0.0027)+0.5*Math.sin(gx*0.0063+1)*Math.sin(gy*0.0057)+0.25*Math.sin(gx*0.015)*Math.cos(gy*0.013);
@@ -554,7 +500,7 @@ function hAt(gx,gy){
 var ZC=['#4f7d3b','#3f6a35','#82893f','#8c7b66','#93503a'].map(function(c){return new THREE.Color(c)});
 var VIL=new THREE.Color('#9a8a70');
 function groundColor(gx,gy,out){
-  var r=Math.sqrt(gx*gx+gy*gy),B=[800,1600,2400,3200],zi=0;
+  var r=Math.sqrt(gx*gx+gy*gy),B=[450,900,1300,1700],zi=0;
   while(zi<4&&r>=B[zi])zi++;
   out.copy(ZC[zi]);
   var bl=120;
@@ -580,7 +526,6 @@ function groundColor(gx,gy,out){
   m.receiveShadow=true;scene.add(m);
 })();
 
-/* Metin2 Savaşçı Modeli */
 function buildMetin2Warrior(o){
   var g=new THREE.Group(),ms=[],P={};
   function add(par,geo,mat,x,y,z){var m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;m.userData.m0=mat;par.add(m);ms.push(m);return m}
@@ -624,7 +569,6 @@ function buildMetin2Warrior(o){
   return {g:g,P:P,ms:ms,h:2.2,kind:'h'};
 }
 
-/* Binek Modeli (At) */
 function buildHorseModel(){
   var g=new THREE.Group(), ms=[];
   function add(par,geo,mat,x,y,z){var m=new THREE.Mesh(geo,mat);m.position.set(x,y,z);m.castShadow=true;par.add(m);ms.push(m);return m}
@@ -702,7 +646,6 @@ function buildMetinModel(zi){
   return {g:g,ms:ms,h:5.6,kind:'x',P:g.userData};
 }
 
-/* HP Bar */
 function makeBar(parent,y,w){
   var bg=new THREE.Sprite(new THREE.SpriteMaterial({color:0x120d0a,depthTest:false,transparent:true,opacity:0.85}));
   var fg=new THREE.Sprite(new THREE.SpriteMaterial({color:0xd9473b,depthTest:false,transparent:true}));
@@ -713,7 +656,6 @@ function makeBar(parent,y,w){
 }
 function setBar(b,frac,show){b.bg.visible=show;b.fg.visible=show;if(show)b.fg.scale.x=Math.max(0.001,b.w*frac)}
 
-/* Parçacıklar & FX */
 var glowTex=(function(){
   var c=document.createElement('canvas');c.width=c.height=64;var x=c.getContext('2d');
   var g=x.createRadialGradient(32,32,0,32,32,32);g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(0.35,'rgba(255,255,255,0.45)');g.addColorStop(1,'rgba(255,255,255,0)');
@@ -779,7 +721,6 @@ function fxPillar(x,y,z,c,h,r,dur){
 }
 function shakeCam(a){shake=Math.max(shake,a)}
 
-/* Dünya Nesneleri */
 var playerModel=null;
 function rebuildPlayer(){
   if(playerModel){scene.remove(playerModel.g)}
@@ -815,15 +756,16 @@ function removeMonster(m){
 }
 function spawnRandom(farFromPlayer){
   for(var n=0;n<20;n++){
-    var a=R(0,6.283),r=Math.sqrt(Math.random())*3800;
-    if(r<SAFE_R+60)continue;
+    var a=R(0,6.283),r=Math.sqrt(Math.random())*1900;
+    if(r<SAFE_R+40)continue;
     var x=Math.cos(a)*r,y=Math.sin(a)*r;
-    if(farFromPlayer&&dist(x,y,S.x,S.y)<350)continue;
+    if(farFromPlayer&&dist(x,y,S.x,S.y)<250)continue;
     var zt=ZTYPES[zoneOf(r)];
     spawnAt(x,y,zt[Math.random()<0.5?0:1],false);
     return;
   }
 }
+
 function initWorld(){
   for(var i=0;i<monsters.length;i++)removeMonster(monsters[i]);
   for(var j=0;j<metins.length;j++){
@@ -832,8 +774,10 @@ function initWorld(){
   }
   for(var d=0;d<drops.length;d++)scene.remove(drops[d].obj);
   monsters=[];metins=[];drops=[];
+  
   for(var a=0;a<TARGET_MONSTERS;a++)spawnRandom(true);
-  var MP=[[420,0.3],[680,2.4],[1100,4.2],[1500,1.1],[2100,3.3],[2600,5.5],[3100,0.2],[3500,2.0],[3800,4.4]];
+  
+  var MP=[[300,0.3],[500,2.4],[700,4.2],[900,1.1],[1100,3.3],[1300,5.5],[1500,0.2],[1700,2.0],[1900,4.4],[400,1.5],[600,3.5],[800,5.2],[1000,2.1],[1200,0.8],[1400,4.1],[1600,1.9]];
   for(var k=0;k<MP.length;k++){
     var r=MP[k][0],an=MP[k][1],zi=zoneOf(r),mo=buildMetinModel(zi);
     var mLbl = createMobLabel('Metin Taşı', (zi*5+5), true);
@@ -847,15 +791,17 @@ function initWorld(){
 function makeRandomItem(tier){
   var types=['w','a','helm','shield','necklace','earring','bracelet','shoes'];
   var selType = types[Math.floor(Math.random()*types.length)];
-  return {type:selType,tier:Math.max(1,Math.min(5,tier)),plus:0,efs:[]};
+  return {type:selType,tier:Math.max(1,Math.min(5,tier)),plus:0,efs:[],stones:[],socket:0};
 }
+
 function addItem(it){
   if(S.inv.length>=INV_MAX){var v=itemValue(it);S.gold+=v;addLog('Çanta dolu! '+itemName(it)+' satıldı (+'+v+' yang)');return}
   S.inv.push(it);addLog('Eşya Kazanıldı: '+itemName(it));
   if(panelOpen)renderPanel();
 }
+
 function dropAt(x,y,d){
-  d.x=x+R(-22,22);d.y=y+R(-22,22);d.t=R(0,6);
+  d.x=x+R(-15,15);d.y=y+R(-15,15);d.t=R(0,6);
   var g=new THREE.Group(),beamC=0xffffff;
   if(d.kind==='gold'){
     var coin=new THREE.Mesh(GEO('cyl',0.28,0.28,0.07,14),new THREE.MeshPhongMaterial({color:0xe5b84d,emissive:0x7a5a10,shininess:90}));coin.rotation.x=Math.PI/2;
@@ -872,8 +818,24 @@ function dropAt(x,y,d){
   }
   var beam=new THREE.Mesh(GEO('cyl',0.07,0.07,3,8,1,true),fxMat(beamC,0.35));beam.position.y=1.7;g.add(beam);
   d.obj=g;g.position.set(d.x*SC,hAt(d.x,d.y)+0.6,d.y*SC);scene.add(g);
-  drops.push(d);
+  
+  if(autoHunt){
+    setTimeout(function(){
+      if(d.kind==='gold'){S.gold+=d.amt;addFloat(S.x,S.y,'+'+d.amt+' yang [Oto]','#ffd36b',false,1.4)}
+      else if(d.kind==='item')addItem(d.item);
+      else if(d.kind==='bless'){S.blessPaper++;addLog('Kutsama Kağıdı Toplandı!')}
+      else if(d.kind==='efsunObj'){S.efsunObj++;addLog('Efsun Nesnesi Toplandı!')}
+      else if(d.kind==='efsunAdd'){S.efsunAdd++;addLog('Arttırma Kağıdı Toplandı!')}
+      else if(d.kind==='hp'){S.hpPot++;addLog('Can iksiri toplandı')}
+      else if(d.kind==='mp'){S.mpPot++;addLog('Mana iksiri toplandı')}
+      freeDrop(d);
+      var idx=drops.indexOf(d);if(idx>=0)drops.splice(idx,1);
+    },200);
+  }else{
+    drops.push(d);
+  }
 }
+
 function freeDrop(d){scene.remove(d.obj);}
 
 var _v=new THREE.Vector3();
@@ -895,7 +857,6 @@ function updateFloats(dt){
   }
 }
 
-/* Savaş Hesaplaması */
 function gainXp(n){
   S.xp+=n;
   while(S.xp>=need(S.lv) && S.lv < MAX_LV){
@@ -909,21 +870,30 @@ function gainXp(n){
   }
 }
 function enemyPos(e){return [e.x*SC,hAt(e.x,e.y),e.y*SC]}
+
+/* ÖLDÜĞÜ AN ETİKET VE BAR DİREKT SİLİNİR */
 function killMonster(m){
-  m.dead=true;m.st='dead';m.respawn=T+4;m.deadT=0;
+  m.dead=true;m.st='dead';m.respawn=T+15;
+  m.deadT=0;
+  if(m.label && m.label.parentNode) m.label.parentNode.removeChild(m.label);
+  setBar(m.bar,0,false);
+
   S.kills++;gainXp(m.t.xp);
   var p=enemyPos(m);sparks(p[0],p[1]+0.8,p[2],0xffc070,18,4,2,0.7,8);
   dropAt(m.x,m.y,{kind:'gold',amt:RI(m.t.gold[0],m.t.gold[1])});
-  if(Math.random()<0.18){dropAt(m.x,m.y,{kind:'item',item:makeRandomItem(m.t.tier)});}
-  if(Math.random()<0.10)dropAt(m.x,m.y,{kind:'efsunObj'});
-  setBar(m.bar,0,false);
+  if(Math.random()<0.20){dropAt(m.x,m.y,{kind:'item',item:makeRandomItem(m.t.tier)});}
+  if(Math.random()<0.15)dropAt(m.x,m.y,{kind:'efsunObj'});
   if(target&&target.ref===m)target=null;
 }
+
 function hitMonster(m,dmg,crit,hex){
   if(m.dead)return;
   if(m.t.type==='Hayvan') dmg = Math.round(dmg * (1 + totalEfsun('anim')/100));
   if(m.t.type==='Mistik') dmg = Math.round(dmg * (1 + totalEfsun('mist')/100));
   if(m.t.type==='Ork') dmg = Math.round(dmg * (1 + totalEfsun('orc')/100));
+
+  /* Canavar Taşı Bonusu */
+  dmg = Math.round(dmg * (1 + stoneBonus('monster')/100));
 
   m.hp-=dmg;m.flash=0.12;
   if(m.st!=='chase'&&m.st!=='flee')m.st='chase';
@@ -932,8 +902,13 @@ function hitMonster(m,dmg,crit,hex){
   if(crit)shakeCam(0.12);
   if(m.hp<=0){m.hp=0;killMonster(m)}
 }
+
 function hitMetin(mt,dmg,crit,hex){
   if(!mt.alive)return;
+
+  /* Metin Taşı Bonusu */
+  dmg = Math.round(dmg * (1 + stoneBonus('metin')/100));
+
   mt.hp-=dmg;mt.flash=0.12;
   addFloat(mt.x,mt.y,String(dmg),crit?'#ffd36b':'#d6b8ff',crit,5.2);
   var p=enemyPos(mt);sparks(p[0],p[1]+3,p[2],hex||0xd0a0ff,crit?14:8,4,2,0.6,6);
@@ -942,17 +917,21 @@ function hitMetin(mt,dmg,crit,hex){
   while(mt.step<4&&frac<=1-0.2*(mt.step+1)&&mt.hp>0){
     mt.step++;
     var zt=ZTYPES[mt.zi];
-    for(var i=0;i<3;i++){var a=R(0,6.283);spawnAt(mt.x+Math.cos(a)*90,mt.y+Math.sin(a)*90,zt[Math.random()<0.5?0:1],true);}
+    for(var i=0;i<3;i++){var a=R(0,6.283);spawnAt(mt.x+Math.cos(a)*70,mt.y+Math.sin(a)*70,zt[Math.random()<0.5?0:1],true);}
     fxRing(p[0],p[1],p[2],0xc080ff,1,9,0.8);
   }
   if(mt.hp<=0){
-    mt.hp=0;mt.alive=false;mt.resp=T+90;S.metins++;
+    mt.hp=0;mt.alive=false;mt.resp=T+15;
+    if(mt.label && mt.label.parentNode) mt.label.parentNode.removeChild(mt.label);
+    setBar(mt.bar,0,false);
+
+    S.metins++;
     gainXp(METIN_XP[mt.zi]);
     dropAt(mt.x,mt.y,{kind:'gold',amt:RI(METIN_GOLD[mt.zi],METIN_GOLD[mt.zi]*2)});
     dropAt(mt.x,mt.y,{kind:'item',item:makeRandomItem(mt.zi+2)});
-    if(Math.random()<0.80) dropAt(mt.x,mt.y,{kind:'bless'});
-    if(Math.random()<0.60) dropAt(mt.x,mt.y,{kind:'efsunObj'});
-    if(Math.random()<0.60) dropAt(mt.x,mt.y,{kind:'efsunAdd'});
+    if(Math.random()<0.85) dropAt(mt.x,mt.y,{kind:'bless'});
+    if(Math.random()<0.70) dropAt(mt.x,mt.y,{kind:'efsunObj'});
+    if(Math.random()<0.70) dropAt(mt.x,mt.y,{kind:'efsunAdd'});
 
     addLog('METİN TAŞI PATLADI!');
     var col=mt.mo.P.col;
@@ -989,65 +968,84 @@ function pPos3(){return [S.x*SC,hAt(S.x,S.y),S.y*SC]}
 
 function toggleMount(){
   mounted = !mounted;
-  addLog(mounted ? 'Bineğe binildi! (+Hız ve Saldırı)' : 'Binekten inildi.');
+  addLog(mounted ? 'Bineğe binildi! (Hız Katlandı)' : 'Binekten inildi.');
   $('mountTxt').textContent = mounted ? 'At Üstünde' : 'Yaya';
 }
 
 function playerAttack(){
   if(!target)return;
-  var r=rollDmg(pAtk(),1);swing=1;atkCd=0.55;
+  var r=rollDmg(pAtk(),1);swing=1;atkCd=0.50;
   faceTo(target.ref.x,target.ref.y);
   dealTo(target.kind==='m'?'m':'x',target.ref,r.d,r.crit);
 }
+
 function nearestTarget(maxD){
-  var best=null,bd=maxD;
+  var best=null,bd=maxD||1200;
   for(var i=0;i<monsters.length;i++){var m=monsters[i];if(m.dead)continue;var d=dist(m.x,m.y,S.x,S.y);if(d<bd){bd=d;best={kind:'m',ref:m}}}
   for(var j=0;j<metins.length;j++){var mt=metins[j];if(!mt.alive)continue;var d2=dist(mt.x,mt.y,S.x,S.y)-20;if(d2<bd){bd=d2;best={kind:'x',ref:mt}}}
   return best;
 }
 function validTarget(tg){return tg&&((tg.kind==='m'&&!tg.ref.dead)||(tg.kind==='x'&&tg.ref.alive))}
 
-/* ESKİ SKİLLER KODU */
+/* KILIÇ FIRLATMA (PROJ) DÜZELTİLDİ */
+function updateProjectiles(dt){
+  for(var i=projs.length-1;i>=0;i--){
+    var p=projs[i];p.d+=600*dt;
+    var px=p.x+p.dx*p.d, py=p.y+p.dy*p.d;
+    var p3=[px*SC,hAt(px,py)+1.2,py*SC];
+    sparks(p3[0],p3[1],p3[2],p.hex,4,3,1.5,0.3,3);
+    
+    forEnemies(function(k,e,rad){
+      if(p.hit.indexOf(e)<0&&dist(e.x,e.y,px,py)<55+rad){
+        p.hit.push(e);var r=rollDmg(pAtk(),p.mul);dealTo(k,e,r.d,r.crit,p.hex);
+        fxBurst(p3[0],p3[1],p3[2],p.hex,0.5,3.0,0.3);
+      }
+    });
+    if(p.d>900){projs.splice(i,1)}
+  }
+}
+
 function useSkill(i){
   if(dead)return;
   var SK = getSK();
   var sk = SK[i];
   if(S.lv<sk.lv){addLog(sk.n+' için Sv '+sk.lv+' gerekli');return}
-  if(cds[i]>0)return;
   if(S.mp<sk.mp){addLog('Yeterli Mana yok');return}
   var p=pPos3(),mul=skMul(i),hex=new THREE.Color(sk.col).getHex();
 
-  if(sk.type==='single'||sk.type==='proj'){
-    var tg=validTarget(target)?target:nearestTarget(140);
-    if(!tg&&sk.type==='single'){addLog('Yakında hedef yok');return}
-    S.mp-=sk.mp;cds[i]=sk.cd;
-    if(tg){
-      faceTo(tg.ref.x,tg.ref.y);swing=1;
-      var q=enemyPos(tg.ref),r=rollDmg(pAtk(),mul);
-      fxPillar(q[0],q[1],q[2],hex,10,1.0,0.7);
-      fxBurst(q[0],q[1]+1,q[2],hex,0.4,3.2,0.45);
-      shakeCam(0.35);
-      dealTo(tg.kind==='m'?'m':'x',tg.ref,r.d,r.crit,hex);
-    }else{
-      swing=1;var dv=dirVec(face);
-      projs.push({x:S.x+dv[0]*60,y:S.y+dv[1]*60,dx:dv[0],dy:dv[1],d:0,hit:[],mul:mul,hex:hex});
-    }
+  if(sk.type==='single'){
+    var tg=validTarget(target)?target:nearestTarget(800);
+    if(!tg){addLog('Yakında hedef yok');return}
+    S.mp-=sk.mp;
+    faceTo(tg.ref.x,tg.ref.y);swing=1;
+    var q=enemyPos(tg.ref),r=rollDmg(pAtk(),mul);
+    fxPillar(q[0],q[1],q[2],hex,10,1.0,0.7);
+    fxBurst(q[0],q[1]+1,q[2],hex,0.4,3.2,0.45);
+    shakeCam(0.35);
+    dealTo(tg.kind==='m'?'m':'x',tg.ref,r.d,r.crit,hex);
+  }else if(sk.type==='proj'){
+    var tg2=validTarget(target)?target:nearestTarget(800);
+    S.mp-=sk.mp;swing=1;
+    if(tg2)faceTo(tg2.ref.x,tg2.ref.y);
+    var dv=dirVec(face);
+    projs.push({x:S.x+dv[0]*20,y:S.y+dv[1]*20,dx:dv[0],dy:dv[1],d:0,hit:[],mul:mul,hex:hex});
+    addLog(sk.n+' fırlatıldı!');
   }else if(sk.type==='spin'||sk.type==='aoe'){
-    S.mp-=sk.mp;cds[i]=sk.cd;spinA=1;
-    fxRing(p[0],p[1],p[2],hex,0.5,6.4,0.5);
-    fxBurst(p[0],p[1]+1,p[2],hex,0.5,5,0.5);
-    var n=hitArea(S.x,S.y,130,mul,hex);
+    S.mp-=sk.mp;spinA=1;
+    fxRing(p[0],p[1],p[2],hex,0.5,7.5,0.5);
+    fxBurst(p[0],p[1]+1,p[2],hex,0.5,6,0.5);
+    var n=hitArea(S.x,S.y,160,mul,hex);
     if(n)shakeCam(0.3);
   }else if(sk.type==='buff'){
-    S.mp-=sk.mp;cds[i]=sk.cd;castA=1;
-    buff=10;fxRing(p[0],p[1],p[2],hex,0.5,5,0.6);
+    S.mp-=sk.mp;castA=1;
+    buff=12;fxRing(p[0],p[1],p[2],hex,0.5,6,0.6);
     addLog(sk.n+' Aktif!');
   }else if(sk.type==='dash'){
     var dx,dy;
     if(validTarget(target)){dx=target.ref.x-S.x;dy=target.ref.y-S.y}
     else{var dv2=dirVec(face);dx=dv2[0];dy=dv2[1]}
     var l=Math.sqrt(dx*dx+dy*dy)||1;
-    S.mp-=sk.mp;cds[i]=sk.cd;
+    S.mp-=sk.mp;
     charge={t:0,dur:0.28,dx:dx/l,dy:dy/l,hit:[],hex:hex};
     face=Math.atan2(charge.dx,charge.dy);moveTo=null;
     shakeCam(0.2);
@@ -1092,7 +1090,6 @@ function clampWorld(e){var r=Math.sqrt(e.x*e.x+e.y*e.y);if(r>WORLD_R){e.x*=WORLD
 function update(dt){
   T+=dt;S.play+=dt;animT+=dt;
   if(buff>0)buff-=dt;
-  for(var i=0;i<5;i++)if(cds[i]>0)cds[i]-=dt;
   if(potCd>0)potCd-=dt;
   if(atkCd>0)atkCd-=dt;
   if(swing>0)swing=Math.max(0,swing-dt*3.4);
@@ -1100,7 +1097,10 @@ function update(dt){
   if(spinA>0)spinA=Math.max(0,spinA-dt*2.8);
   var moved=false;
 
-  var currentSpeed = 175 * (mounted ? 1.6 : 1.0);
+  var speedBonus = stoneBonus('speed') * 2.5;
+  var currentSpeed = (175 + speedBonus) * (mounted ? 2.5 : 1.0);
+
+  updateProjectiles(dt);
 
   if(!dead){
     if(S.autoHpOn && S.autoHpPot > 0 && S.hp < maxHp()*0.65){
@@ -1120,10 +1120,10 @@ function update(dt){
   if(!dead){
     if(charge){
       charge.t+=dt;
-      var cs=1000*dt;S.x+=charge.dx*cs;S.y+=charge.dy*cs;clampWorld(S);moved=true;
+      var cs=1200*dt;S.x+=charge.dx*cs;S.y+=charge.dy*cs;clampWorld(S);moved=true;
       forEnemies(function(k,e,rad){
-        if(charge.hit.indexOf(e)<0&&dist(e.x,e.y,S.x,S.y)<75+rad){
-          charge.hit.push(e);var r=rollDmg(pAtk(),skMul(3));dealTo(k,e,r.d,r.crit,charge.hex||0xffffff);
+        if(charge.hit.indexOf(e)<0&&dist(e.x,e.y,S.x,S.y)<85+rad){
+          charge.hit.push(e);var r=rollDmg(pAtk(),skMul(4));dealTo(k,e,r.d,r.crit,charge.hex||0xffffff);
           if(k==='m')e.stun=1.5;shakeCam(0.25);
         }
       });
@@ -1148,7 +1148,10 @@ function update(dt){
         var rem=step(S,moveTo.x,moveTo.y,currentSpeed,dt);moved=true;
         if(rem<4)moveTo=null;clampWorld(S);
       }
-      if(autoHunt&&!target&&!moveTo&&!kx&&!ky){var nt=nearestTarget(380);if(nt)target=nt;}
+      
+      if(autoHunt&&!target&&!moveTo&&!kx&&!ky){
+        var nt=nearestTarget(1400);if(nt)target=nt;
+      }
     }
     var inSafe=dist(S.x,S.y,0,0)<SAFE_R;
     S.mp=Math.min(maxMp(),S.mp+maxMp()*0.02*dt*(inSafe?4:1));
@@ -1160,7 +1163,15 @@ function update(dt){
   for(var a2=monsters.length-1;a2>=0;a2--){
     var m=monsters[a2];
     if(m.flash>0)m.flash-=dt;
-    if(m.dead){m.deadT+=dt;if(T>m.respawn){removeMonster(m);monsters.splice(a2,1)}continue}
+    if(m.dead){
+      m.deadT+=dt;
+      if(T>m.respawn){
+        removeMonster(m);
+        monsters.splice(a2,1);
+        spawnRandom(true);
+      }
+      continue;
+    }
     alive++;m.anim+=dt*6;
     var dp=dist(m.x,m.y,S.x,S.y),t=m.t,ox=m.x,oy=m.y;
     if(m.stun>0){m.stun-=dt;m.mv=0;continue}
@@ -1189,16 +1200,20 @@ function update(dt){
     if(m.lunge>0)m.lunge-=dt;
     var moveD=dist(ox,oy,m.x,m.y)/Math.max(dt,0.001);m.mv+=((moveD>5?1:0)-m.mv)*Math.min(1,dt*8);
   }
-  if(alive<TARGET_MONSTERS&&Math.random()<dt*1.5)spawnRandom(true);
+  
+  if(alive<TARGET_MONSTERS&&Math.random()<dt*2)spawnRandom(true);
 
   for(var b=0;b<metins.length;b++){
     var mt=metins[b];if(mt.flash>0)mt.flash-=dt;
-    if(!mt.alive&&T>mt.resp){mt.alive=true;mt.hp=mt.max;mt.step=0;mt.mo.g.visible=true;}
+    if(!mt.alive&&T>mt.resp){
+      mt.alive=true;mt.hp=mt.max;mt.step=0;mt.mo.g.visible=true;
+      if(!mt.label) mt.label = createMobLabel('Metin Taşı', (mt.zi*5+5), true);
+    }
   }
 
   for(var c=drops.length-1;c>=0;c--){
     var dr=drops[c];dr.t+=dt;
-    if(!dead&&dist(dr.x,dr.y,S.x,S.y)<48){
+    if(!dead&&dist(dr.x,dr.y,S.x,S.y)<50){
       if(dr.kind==='gold'){S.gold+=dr.amt;addFloat(dr.x,dr.y,'+'+dr.amt+' yang','#ffd36b',false,1.4)}
       else if(dr.kind==='item')addItem(dr.item);
       else if(dr.kind==='bless'){S.blessPaper++;addLog('Kutsama Kağıdı Düştü!')}
@@ -1312,7 +1327,6 @@ function updateCamera(dt){
   camera.position.set(cx,cy,cz);camera.lookAt(p[0],p[1]+1.5,p[2]);
 }
 
-/* Arayüz */
 var last={};
 function setTxt(id,v){if(last[id]!==v){last[id]=v;$(id).textContent=v}}
 function setW(id,pct){var v=Math.max(0,Math.min(100,pct)).toFixed(1);if(last[id]!==v){last[id]=v;$(id).style.width=v+'%'}}
@@ -1361,7 +1375,7 @@ function buildSkillButtons(){
   host.innerHTML='';
   skBtns=[];
   var SK = getSK();
-  for(var i=0;i<5;i++){
+  for(var i=0;i<6;i++){
     var b=document.createElement('button');b.type='button';b.className='sk';b.id='sk'+(i+1);
     b.innerHTML='<kbd>'+(i+1)+'</kbd>'+SK[i].n+'<small></small><span class="lv"></span><span class="cd"></span>';
     (function(ix){b.addEventListener('click',function(){useSkill(ix)})})(i);
@@ -1386,14 +1400,13 @@ function updateHud(){
   setW('xpBar',S.xp/need(S.lv)*100);
   setTxt('nHp',String(S.hpPot));setTxt('nMp',String(S.mpPot));
   var SK = getSK();
-  for(var i=0;i<5;i++){
+  for(var i=0;i<6;i++){
     var b=skBtns[i];if(!b)continue;
     var locked=S.lv<SK[i].lv;
     var small=b.querySelector('small'),lv=b.querySelector('.lv'),cd=b.querySelector('.cd');
     var st=locked?'Sv '+SK[i].lv:SK[i].mp+' MP';if(last['s'+i]!==st){last['s'+i]=st;small.textContent=st}
     var ls=locked?'':'M'+S.skl[i];if(last['l'+i]!==ls){last['l'+i]=ls;lv.textContent=ls}
     b.classList.toggle('lock',locked);
-    var v=(cds[i]>0?cds[i]/SK[i].cd*100:0).toFixed(0)+'%';if(last['cd'+i]!==v){last['cd'+i]=v;cd.style.height=v}
   }
   var tg=target,show=false;
   if(validTarget(tg)){
@@ -1408,7 +1421,6 @@ function updateHud(){
   if($('target').hidden===show)$('target').hidden=!show;
 }
 
-/* "i" Bilgi Butonuna Tıklama İşlevi */
 $('infoBtn').addEventListener('click', function(){
   if(!validTarget(target))return;
   var tr = target.ref;
@@ -1429,15 +1441,25 @@ $('closeMobInfoBtn').addEventListener('click', function(){
   $('mobInfoModal').hidden = true;
 });
 
-function togglePanel(open){
+function togglePanel(open, targetTab){
   panelOpen=open===undefined?!panelOpen:open;
+  if(targetTab) tab = targetTab;
   $('panel').hidden=!panelOpen;
   if(panelOpen)renderPanel();
 }
 
 function itemEfsunTxt(it){
-  if(!it||!Array.isArray(it.efs)||!it.efs.length)return '<div class="efs">Efsun Yok</div>';
   var str='';
+  if(it.stones && it.stones.length){
+    for(var s=0;s<it.stones.length;s++){
+      var stName = it.stones[s]==='monster'?'Canavar Taşı (+%25)':(it.stones[s]==='metin'?'Metin Taşı (+%25)':(it.stones[s]==='life'?'Yaşam Taşı (+HP)':'Hız Taşı'));
+      str += '<div class="socket">💎 '+stName+'</div>';
+    }
+  }
+  if(it.socket){
+    str += '<div class="socket">✨ Eklenen Cevher: '+it.socket+' Kat</div>';
+  }
+  if(!it||!Array.isArray(it.efs)||!it.efs.length)return str + '<div class="efs">Efsun Yok</div>';
   for(var i=0;i<it.efs.length;i++){
     str += '<div class="efs">• '+it.efs[i].n+' '+it.efs[i].v+'</div>';
   }
@@ -1457,14 +1479,28 @@ function slotBox(label,it,slotKey){
   var icon = it ? (ITEM_ICONS[it.type] || '📦') : '🚫';
   if(!it)return '<div class="slot"><div class="lbl">'+label+'</div><div class="nm" style="color:var(--mute)"><span class="item-icon">'+icon+'</span>Boş</div></div>';
   var st = it.type==='w'?'Saldırı ':'Savunma ';
+  
+  var btns = '<div style="display:flex;gap:4px;margin-top:6px;flex-wrap:wrap">'+
+      '<button type="button" data-act="addEfsun" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Efsun Ekle ('+S.efsunAdd+')</button>'+
+      '<button type="button" data-act="changeEfsun" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Değiştir ('+S.efsunObj+')</button>';
+
+  if(slotKey==='weapon'){
+    btns += '<button type="button" data-act="addStoneM" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Canavar T. ('+S.stMonster+')</button>';
+    btns += '<button type="button" data-act="addStoneX" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Metin T. ('+S.stMetin+')</button>';
+  }
+  if(slotKey==='armor'){
+    btns += '<button type="button" data-act="addStoneL" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Yaşam T. ('+S.stLife+')</button>';
+    btns += '<button type="button" data-act="addStoneS" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Hız T. ('+S.stSpeed+')</button>';
+  }
+  if(slotKey==='earring'||slotKey==='necklace'||slotKey==='bracelet'){
+    btns += '<button type="button" data-act="addOre" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Cevher Ekle ('+S.oreJewel+')</button>';
+  }
+
+  btns += '<button type="button" data-act="unequip" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Çıkar</button></div>';
+
   return '<div class="slot"><div class="lbl">'+label+'</div><div class="nm" style="color:'+(TCOL[it.tier]||'#fff')+'"><span class="item-icon">'+icon+'</span>'+itemName(it)+'</div>'+
     '<div class="st" style="color:var(--mute)">'+st+itemStat(it)+'</div>'+
-    itemEfsunTxt(it)+
-    '<div style="display:flex;gap:4px;margin-top:6px">'+
-      '<button type="button" data-act="addEfsun" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Efsun Ekle ('+S.efsunAdd+')</button>'+
-      '<button type="button" data-act="changeEfsun" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Değiştir ('+S.efsunObj+')</button>'+
-      '<button type="button" data-act="unequip" data-slot="'+slotKey+'" style="font-size:9px;padding:2px 4px">Çıkar</button>'+
-    '</div></div>';
+    itemEfsunTxt(it)+ btns + '</div>';
 }
 
 function upCost(it){return Math.round(40*(it.tier||1)*Math.pow((it.plus||0)+1,1.5))}
@@ -1497,27 +1533,44 @@ function renderPanel(){
       slotBox('Ayakkabı',S.shoes,'shoes')+
     '</div>';
 
-    h+='<h3 style="margin-top:14px">Efsun / Malzemeler</h3>';
-    h+='<div class="note">🟢 Efsun Nesnesi: <b>'+S.efsunObj+'</b> | 🔴 Arttırma Kağıdı: <b>'+S.efsunAdd+'</b><br>📜 Kutsama Kağıdı: <b>'+S.blessPaper+'</b></div>';
-
     h+='<h3 style="margin-top:14px">Çanta ('+S.inv.length+'/'+INV_MAX+')</h3>';
+    h+='<div style="display:flex;gap:6px;margin-bottom:10px">'+
+        '<button type="button" data-act="sortInv" style="flex:1">Eşyaları Sırala (En Değerli)</button>'+
+        '<button type="button" data-act="clearInv" style="flex:1;border-color:var(--blood);color:var(--blood)">Tümünü Sat / Temizle</button>'+
+       '</div>';
+
     if(!S.inv.length)h+='<div class="note">Çantanız boş.</div>';
     for(var j=0;j<S.inv.length;j++)h+=itemRow(S.inv[j],j);
 
   }else if(tab==='stats'){
-    h+='<h3>Statü Dağılımı</h3>'+
-    '<div class="note">Statü Puanı: <b style="color:var(--gold);font-size:16px">'+S.statPts+'</b></div>'+
+    h+='<h3>Detaylı Karakter & Statü (C)</h3>'+
+    '<div class="note">Dağıtılabilir Statü Puanı: <b style="color:var(--gold);font-size:16px">'+S.statPts+'</b></div>'+
     '<table class="stats">'+
+      '<tr><td>Mevcut HP (Can):</td><td><b>'+Math.ceil(S.hp)+' / '+maxHp()+'</b></td><td></td></tr>'+
+      '<tr><td>Mevcut SP (Mana):</td><td><b>'+Math.floor(S.mp)+' / '+maxMp()+'</b></td><td></td></tr>'+
+      '<tr><td>Saldırı Değeri:</td><td><b style="color:var(--gold)">'+pAtk()+'</b></td><td></td></tr>'+
+      '<tr><td>Savunma Değeri:</td><td><b style="color:var(--jade)">'+aDef()+'</b></td><td></td></tr>'+
       '<tr><td>VIT (Can/HP):</td><td><b>'+S.vit+'</b></td><td><button type="button" data-act="addStat" data-st="vit"'+(S.statPts<1?' disabled':'')+'>+</button></td></tr>'+
       '<tr><td>INT (Mana/SP):</td><td><b>'+S.int+'</b></td><td><button type="button" data-act="addStat" data-st="int"'+(S.statPts<1?' disabled':'')+'>+</button></td></tr>'+
       '<tr><td>STR (Saldırı):</td><td><b>'+S.str+'</b></td><td><button type="button" data-act="addStat" data-st="str"'+(S.statPts<1?' disabled':'')+'>+</button></td></tr>'+
       '<tr><td>DEX (Savunma/Kritik):</td><td><b>'+S.dex+'</b></td><td><button type="button" data-act="addStat" data-st="dex"'+(S.statPts<1?' disabled':'')+'>+</button></td></tr>'+
-    '</table>';
+    '</table>'+
+    '<h3 style="margin-top:16px">Toplam Efsun & Bonus Oranları</h3>'+
+    '<div class="note">'+
+      '• Max HP Bonus: <b>+'+totalEfsun('hp')+'</b><br>'+
+      '• Saldırı Değeri: <b>+'+totalEfsun('atk')+'</b><br>'+
+      '• Kritik Vuruş Şansı: <b>%'+totalEfsun('crit')+'</b><br>'+
+      '• Hayvanlara Karşı Güçlü: <b>%'+totalEfsun('anim')+'</b><br>'+
+      '• Mistiklere Karşı Güçlü: <b>%'+totalEfsun('mist')+'</b><br>'+
+      '• Orklara Karşı Güçlü: <b>%'+totalEfsun('orc')+'</b><br>'+
+      '• Canavar Taşları Gücü: <b>%'+stoneBonus('monster')+'</b><br>'+
+      '• Metin Taşları Gücü: <b>%'+stoneBonus('metin')+'</b>'+
+    '</div>';
 
   }else if(tab==='skills'){
     var SK = getSK();
     h+='<h3>'+CLASSES[S.cls||0].name+' Becerileri</h3><div class="note">Beceri Puanı: <b style="color:var(--gold)">'+S.sp+'</b></div>';
-    for(var s=0;s<5;s++){
+    for(var s=0;s<6;s++){
       var sk=SK[s],locked=S.lv<sk.lv,lv=S.skl[s];
       h+='<div class="skrow"><div class="h"><b style="color:'+(locked?'var(--mute)':sk.col)+'">'+(s+1)+'. '+sk.n+'</b><span class="st" style="color:var(--mute)">'+(locked?'Sv '+sk.lv+' gerekli':'M'+lv+' / '+SK_MAX)+'</span></div>'+
         '<div class="d">'+sk.d+'</div>'+
@@ -1528,12 +1581,15 @@ function renderPanel(){
     if(upMsg)h+=upMsg;
     h+=upBox('weapon','Silah')+upBox('armor','Zırh')+upBox('helm','Kask')+upBox('shield','Kalkan')+upBox('necklace','Kolye')+upBox('earring','Küpe')+upBox('bracelet','Bilezik')+upBox('shoes','Ayakkabı');
   }else if(tab==='shop'){
-    h+='<h3>Nesne Marketi</h3><div class="note">Mevcut Yang: <b style="color:var(--gold)">'+fmt(S.gold)+'</b></div>';
-    h+='<div class="row"><span class="nm"><span class="item-icon">🟢</span> Efsun Nesnesi</span><button type="button" data-act="buyEfsunObj" data-cost="500">500 Yang</button></div>';
-    h+='<div class="row"><span class="nm"><span class="item-icon">🔴</span> Arttırma Kağıdı</span><button type="button" data-act="buyEfsunAdd" data-cost="500">500 Yang</button></div>';
-    h+='<div class="row"><span class="nm"><span class="item-icon">📜</span> Kutsama Kağıdı</span><button type="button" data-act="buyBless" data-cost="1000">1,000 Yang</button></div>';
-    h+='<div class="row"><span class="nm"><span class="item-icon">☀️</span> Güneş Özütü (Oto HP)</span><button type="button" data-act="buyAutoHp" data-cost="2500">2,500 Yang</button></div>';
-    h+='<div class="row"><span class="nm"><span class="item-icon">🌙</span> Ay Özütü (Oto MP)</span><button type="button" data-act="buyAutoMp" data-cost="2500">2,500 Yang</button></div>';
+    h+='<h3>Nesne & Taş Marketi</h3><div class="note">Mevcut Yang: <b style="color:var(--gold)">'+fmt(S.gold)+'</b></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">🟢</span> Efsun Nesnesi</span><button type="button" data-act="buyItem" data-item="efsunObj" data-cost="500">500 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">🔴</span> Arttırma Kağıdı</span><button type="button" data-act="buyItem" data-item="efsunAdd" data-cost="500">500 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">📜</span> Kutsama Kağıdı</span><button type="button" data-act="buyItem" data-item="blessPaper" data-cost="1000">1,000 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">🐉</span> Canavar Taşı (Silah)</span><button type="button" data-act="buyItem" data-item="stMonster" data-cost="2000">2,000 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">💎</span> Metin Taşı (Silah)</span><button type="button" data-act="buyItem" data-item="stMetin" data-cost="2000">2,000 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">❤️</span> Yaşam Taşı (Zırh)</span><button type="button" data-act="buyItem" data-item="stLife" data-cost="2000">2,000 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">⚡</span> Hız Taşı (Zırh)</span><button type="button" data-act="buyItem" data-item="stSpeed" data-cost="2000">2,000 Yang</button></div>';
+    h+='<div class="row"><span class="nm"><span class="item-icon">✨</span> Değerli Cevher (Takı)</span><button type="button" data-act="buyItem" data-item="oreJewel" data-cost="1500">1,500 Yang</button></div>';
   }
   b.innerHTML=h;
 }
@@ -1565,19 +1621,40 @@ $('pbody').addEventListener('click',function(e){
       S.efsunObj--;
       addLog(itemName(item2)+' efsunları değiştirildi!');
     }else{addLog('En az 1 efsun olmalı!')}
+  }else if(act==='addStoneM'||act==='addStoneX'||act==='addStoneL'||act==='addStoneS'){
+    var slot3=el.getAttribute('data-slot'), item3=S[slot3];
+    var type = act==='addStoneM'?'monster':(act==='addStoneX'?'metin':(act==='addStoneL'?'life':'speed'));
+    var prop = act==='addStoneM'?'stMonster':(act==='addStoneX'?'stMetin':(act==='addStoneL'?'stLife':'stSpeed'));
+    if(item3 && S[prop]>0){
+      if(!Array.isArray(item3.stones)) item3.stones=[];
+      if(item3.stones.length<2){
+        item3.stones.push(type);
+        S[prop]--;
+        addLog(itemName(item3)+' eşyasına taş basıldı!');
+      }else{addLog('En fazla 2 taş basılabilir!')}
+    }else{addLog('Taşın kalmadı!')}
+  }else if(act==='addOre'){
+    var slot4=el.getAttribute('data-slot'), item4=S[slot4];
+    if(item4 && S.oreJewel > 0){
+      item4.socket = (item4.socket||0) + 1;
+      S.oreJewel--;
+      addLog(itemName(item4)+' takısına cevher eklendi!');
+    }else{addLog('Cevherin kalmadı!')}
+  }else if(act==='sortInv'){
+    S.inv.sort(function(a,b){return itemValue(b) - itemValue(a);});
+    addLog('Çanta en değerli eşyalara göre sıralandı.');
+  }else if(act==='clearInv'){
+    var totalVal = 0;
+    for(var c=0;c<S.inv.length;c++){totalVal += itemValue(S.inv[c]);}
+    S.gold += totalVal;
+    S.inv = [];
+    addLog('Tüm çanta satıldı: +'+fmt(totalVal)+' Yang');
   }else if(act==='addStat'){
     var st = el.getAttribute('data-st');
     if(S.statPts > 0){S.statPts--; S[st]++; S.hp = maxHp(); S.mp = maxMp();}
-  }else if(act==='buyEfsunObj'){
-    if(S.gold>=500){S.gold-=500; S.efsunObj++; addLog('Efsun Nesnesi Alındı')}
-  }else if(act==='buyEfsunAdd'){
-    if(S.gold>=500){S.gold-=500; S.efsunAdd++; addLog('Arttırma Kağıdı Alındı')}
-  }else if(act==='buyBless'){
-    if(S.gold>=1000){S.gold-=1000; S.blessPaper++; addLog('Kutsama Kağıdı Alındı')}
-  }else if(act==='buyAutoHp'){
-    if(S.gold>=2500){S.gold-=2500; S.autoHpPot+=10000; addLog('Güneş Özütü Alındı')}
-  }else if(act==='buyAutoMp'){
-    if(S.gold>=2500){S.gold-=2500; S.autoMpPot+=10000; addLog('Ay Özütü Alındı')}
+  }else if(act==='buyItem'){
+    var itProp = el.getAttribute('data-item'), cost=parseInt(el.getAttribute('data-cost'),10);
+    if(S.gold>=cost){S.gold-=cost; S[itProp]=(S[itProp]||0)+1; addLog('Satın alma başarılı!')}
   }else if(act==='equip'){
     var it=S.inv[i];if(!it)return;
     var slotKey = it.type==='w' ? 'weapon' : (it.type==='a' ? 'armor' : it.type);
@@ -1658,18 +1735,18 @@ $('auto').addEventListener('click',function(){autoHunt=!autoHunt;$('auto').class
 window.addEventListener('keydown',function(e){
   var k=e.key.toLowerCase();
   if(e.target&&e.target.tagName==='INPUT')return;
-  if(k>='1'&&k<='5')useSkill(parseInt(k,10)-1);
+  if(k>='1'&&k<='6')useSkill(parseInt(k,10)-1);
   else if(k==='z')usePotion('hp');else if(k==='x')usePotion('mp');
   else if(k==='b'||(e.ctrlKey && k==='h')){e.preventDefault();toggleMount();}
   else if(k==='f'){$('auto').click();}
-  else if(k==='i')togglePanel();
+  else if(k==='c')togglePanel(true, 'stats');
+  else if(k==='i')togglePanel(true, 'inv');
   else if(k==='escape'){$('loginScreen').hidden = !$('loginScreen').hidden; togglePanel(false);}
   else if(k==='q'||k==='e'){keys[k]=true}
   else if('wasd'.indexOf(k)>=0&&k.length===1||k.indexOf('arrow')===0){keys[k]=true;if(k.indexOf('arrow')===0)e.preventDefault()}
 });
 window.addEventListener('keyup',function(e){keys[e.key.toLowerCase()]=false});
 
-/* Kontroller & Kamera */
 var ptrs={},dragMoved=0,pinch0=0,startCam=0;
 function projScreen(x,y,z){_v.set(x,y,z).project(camera);return {x:(_v.x*0.5+0.5)*W,y:(-_v.y*0.5+0.5)*H,z:_v.z}}
 function pickAt(sx,sy){
@@ -1735,7 +1812,6 @@ cv.addEventListener('pointerup',function(e){endPtr(e,true)});
 cv.addEventListener('pointercancel',function(e){endPtr(e,false)});
 cv.addEventListener('wheel',function(e){e.preventDefault();camDist=Math.max(7,Math.min(26,camDist+e.deltaY*0.01))},{passive:false});
 
-/* Döngü */
 var prev=0,saveT=0;
 function frame(ts){
   var dt=Math.min(0.05,(ts-prev)/1000||0.016);prev=ts;
